@@ -159,11 +159,31 @@ var newJsan = {"name":"zhangsan","age":12}
 var puc = forEachAll();
 puc(newArr)
 //24、DOM是哪些基本的数据结构
+
 //25、DOM操作的常用API有哪些
+
 //26、DOM节点的attr和property有何区别
 console.log('attr 可扩展的属性 ，property 是js内置的属性，是已经规定好的')
 //27、如何检测浏览器的类型
+
 //28、解析URL的各个部分
 //29、编写一个通用的监听函数
+function bindEvent(element,type,selector,fn){
+	if(fn == null){
+		fn = selector;
+		selector = null;
+	}
+	element.addEventListener(type,function(e){
+		var target = e.target;
+		if(selector){
+			if(target.matches(selector)){
+				fn.call(target,e);
+			}
+		}
+		else{
+			fn(e)
+		}
+	})
+}
 //30、描述事件冒泡流程
 //31、对于一个无限下拉加载图片的页面，如何给每一个图片绑定事件
