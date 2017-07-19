@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>瀑布流</title>
+    <link rel="stylesheet" href="css/reset.css">
+    <script type="text/javascript" src="js/pubuliu.js"></script>
+    <style type="text/css">
+    .imgbox {
+        width: 1200px;
+        margin: 20px auto;
+    }
+    
+    .clear:after {
+        content: "";
+        display: block;
+        visibility: hidden;
+        height: 0;
+        clear: both;
+    }
+    
+    ul {
+        position: relative;
+    }
+    
+    li {
+        float: left;
+        width: 200px;
+        box-sizing: border-box;
+        padding: 5px;
+    }
+    
+    li>img {
+        width: 100%;
+        box-shadow: 0 0 5px #000;
+        border: 1px solid #333;
+    }
+    </style>
+</head>
+
+<body>
+    <div class="imgbox" id="mine">
+        <ul class="clear">
+            <li>
+                <img src="img/P_0.jpg" alt="">
+            </li>
+            <li>
+                <img src="img/P_1.jpg" alt="">
+            </li>
+            <li>
+                <img src="img/P_2.jpg" alt="">
+            </li>
+            <li>
+                <img src="img/P_3.jpg" alt="">
+            </li>
+            <li>
+                <img src="img/P_4.jpg" alt="">
+            </li>
+            <li>
+                <img src="img/P_5.jpg" alt="">
+            </li>
+            <li>
+                <img src="img/P_6.jpg" alt="">
+            </li>
+            <li>
+                <img src="img/P_7.jpg" alt="">
+            </li>
+            <li>
+                <img src="img/P_8.jpg" alt="">
+            </li>
+            <li>
+                <img src="img/P_9.jpg" alt="">
+            </li>
+            <li>
+                <img src="img/P_10.jpg" alt="">
+            </li>
+            <li>
+                <img src="img/P_11.jpg" alt="">
+            </li>
+            <li>
+                <img src="img/P_12.jpg" alt="">
+            </li>
+            <li>
+                <img src="img/P_13.jpg" alt="">
+            </li>
+        </ul>
+    </div>
+    <script src="js/jquery-3.1.1.min.js" type="text/javascript"></script>
+    <script type="text/javascript">
+    var arrImg = [];
+    for (var i = 0; i < 12; i++) {
+        arrImg.push("img/P_" + i + ".jpg");
+    }
+    //console.log(arrImg);
+    $(window).on("load", function() {
+        var dataInt = {
+            'data': [{
+                'src': '1.jpg'
+            }, {
+                'src': '2.jpg'
+            }, {
+                'src': '3.jpg'
+            }, {
+                'src': '4.jpg'
+            }]
+        };
+        window.onscroll = function() {
+            if (checkscrollside()) {
+                $.each(dataInt.data, function(index, value) {
+                    var $oPin = $('<div>').addClass('pin').appendTo($("#main"));
+                    var $oBox = $('<div>').addClass('box').appendTo($oPin);
+                    $('<img>').attr('src', './images/' + $(value).attr('src')).appendTo($oBox);
+                });
+            };
+        }
+    });
+
+   
+    </script>
+</body>
+
+</html>
