@@ -201,9 +201,12 @@ console.log('30：说出4点')
 //32、手动编写一个ajax,不依靠第三方库
 //33、跨域的几种实现方式
 //34、JSONP
+
 //35、什么是跨域
 /*
 浏览器有同源策略，不允许ajax访问其他接口
 跨域条件：协议、域名、端口
+但有三个标签可以跨域：img link script
 */
 //36、服务器端设置http header
+//37、描述一下cookie,sessionStorage和localStotage的区别
