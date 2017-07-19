@@ -1,0 +1,48 @@
+@charset "utf-8";  
+/*  
+  Document   : CSS样式初始�? 
+  Created on : 2016. 8. 7,09:41:00  
+  Author :  
+  Description:  
+  CSS样式表的初始化，全局样式设置。部分样式属性请根据具体页面重置其属�? 
+      导入方式�?link href="css/common.css" rel="stylesheet" type="text/css" /> */  
+  
+/* reset */  
+body,div,dl,dt,dd,ul,ol,li,h1,h2,h3,h4,h5,h6,pre,code,form,fieldset,legend,textarea,p,blockquote,th,td,input,select,textarea,button {margin:0;padding:0}  /* 初始化标签在所有浏览器中的margin、padding�?*/  
+fieldset,img {border:0 none}  /* 重置fieldset（表单分组）、图片的边框�?*/  
+dl,ul,ol,menu,li {list-style:none}   /* 重置类表前导符号为onne,menu在HTML5中有�?*/  
+blockquote, q {quotes: none}   /* 重置嵌套引用的引号类�?*/  
+blockquote:before, blockquote:after,q:before, q:after {content:'';content:none}  /* 重置嵌套引用*/  
+input,select,textarea,button {vertical-align:middle}  /* 重置表单控件垂直居中*/  
+button {border:0 none;background-color:transparent;cursor:pointer}  /* 重置表单button按钮效果 */  
+body {background:#fff}   /* 重置body 页面背景为白�?*/  
+body,th,td,input,select,textarea,button {font-size:12px;line-height:1 ;font-family:"微软雅黑", "黑体","宋体";color:#666} /* 重置页面文字属�?*/  
+a {color:#333;text-decoration:none}  /* 重置链接a标签 */  
+a:focus,a:visited,a:active, a:hover {text-decoration:none}   /* 重置链接a标签的鼠标滑动效�?*/  
+address,caption,cite,code,dfn,em,var {font-style:normal;font-weight:normal}  /* 重置样式标签的样�?*/  
+caption {display:none;}    /* 重置表格标题为隐�?*/  
+table {width:100%;border-collapse:collapse;border-spacing:0;table-layout:fixed;}    /* 重置table属�?*/  
+img{vertical-align:top}  /* 图片在当前行内的垂直位置 */  
+   
+/* 页面设置 */  
+   
+  /* 取消a标签点击后的虚线�?*/  
+a {outline: none;}  
+
+a:active{star:expression(this.onFocus=this.blur());}  
+   
+ /* 设置页面文字等在拖动鼠标选中情况下的背景色与文字颜色 */  
+/*   
+::selection {color: #fff;background-color: #4C6E78;}      
+::-moz-selection {color: #fff;background-color: #4C6E78;}   
+*/  
+.pos{position: absolute;}
+/* 清除浮动 */
+.clear:after{content: "";display: block;height: 0;visibility: hidden;clear: both;} 
+.float-left{float: left;}
+.float-right{float: right;}
+/*  
+.clear{clear: both;} 
+.clearfix:before,.clearfix:after{content: '';display: table;}  
+.clearfix:after{clear: both;}   */
+.w1200{width: 1200px;margin: 0 auto;height: 100%;min-width: 1200px;}
