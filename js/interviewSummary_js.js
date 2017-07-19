@@ -73,12 +73,32 @@ console.log('12:1、创建一个新对象。2、this指向这个对象。3、对
 //13、zepto源码中如何使用原型链
 
 //14、说一个对变量提升的理解
-console.log('js会将定义的函数表达式和函数声明提前')
+console.log('14:js会将定义的函数表达式和函数声明提前')
 //15、说明this几种不同的使用场景
+console.log('15:4种')
+/*
+1、作为构造函数执行
+2、作为对象属性执行
+3、作为普通函数执行
+4、call,apply,bind改变this的值
+*/
 //16、如何理解作用域
 //17、实际开发中闭包的作用
+console.log('17:1、函数作为返回值。2、函数作为参数传递');
+function getWhat(){
+	var element = document.getElementById()
+	return function(){
+
+	}
+}
 //18、同步和异步的区别是什么？分别举一个同步和异步的例子
 //19、前端使用异步的场景有哪些
+console.log('19:3种');
+/*
+	1、setInterval 与 setTimeout
+	2、jaxa
+	3、事件绑定
+*/
 //20、获取2017-06-10格式的日期
 //21、一个关于setTimeout的笔试题
 //22、获取随机数，要求是长度一致的字符串格式
