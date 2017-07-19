@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<title></title>
+	<link rel="stylesheet" href="">
+</head>
+<body>
+	<script type="text/javascript" src="js/jquery-3.1.1.min.js"></script>
+	<script type="text/javascript">
+		var urlV ="http://www.gpsso.com/WebService/Dream/Dream.asmx";
+		/*$.ajax({ url:urlV, context: document.body, success: function(){
+        console.log(data)
+      }})*/
+		$.ajax({
+			url :"http://www.gpsso.com/WebService/Dream/Dream.asmx",
+			type : "POST",
+			datatype : "json",
+			async: false,
+			contentType : 'application/json;charset=UTF-8',
+			success : function(result) {
+				console.log(result)
+			}
+			
+		});	
+	</script>
+</body>
+</html>
