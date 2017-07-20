@@ -240,3 +240,10 @@ xhr.send(null);
 			使用document.cookie = "……";
 
 */
+//36、模块化
+/*
+	AMD 与 CommonJs 的使用场景
+	需要你异步加载js,使用AMD
+	如果使用npm建议使用commonjs
+
+*/
