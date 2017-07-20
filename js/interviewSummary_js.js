@@ -199,14 +199,44 @@ console.log('30：说出4点')
 	好处：1、给浏览器降低压力。2、代码比较简洁
 */
 //32、手动编写一个ajax,不依靠第三方库
+var xhr = new XMLHttpRequest()
+xhr.open("post","https://github.com/zjcat/demo",false);
+xhr.onreadystatechange = function(){
+	if(xhr.readyState === 4){
+		if(xhr.status === 200){
+			console.log(xhr.responseText)
+		}
+	}
+}
+xhr.send(null);
+/*
+	readyState 状态码详解
+	0：（未初始化）还没有调用send()方法。
+	1：（载入）已调入send()方法，正在发送请求。
+	2：（载入完成）send()方法执行完成已经接受到全部响应内容。
+	3：（交互）正在解析响应内容。
+	4：（完成）响应内容已经解析完成，可以在客户端调用了。
+	ststus 状态码详解
+	2**:表示成功处理请。
+	3**：需要重定向，浏览器直接跳转。
+	4**：客户端请求错误。
+	5**：服务器端错误。
+*/
 //33、跨域的几种实现方式
-//34、JSONP
-
-//35、什么是跨域
+/*
+	服务器端设置http header
+	JSONP
+*/
+//34、什么是跨域
 /*
 浏览器有同源策略，不允许ajax访问其他接口
 跨域条件：协议、域名、端口
 但有三个标签可以跨域：img link script
 */
-//36、服务器端设置http header
-//37、描述一下cookie,sessionStorage和localStotage的区别
+//35、描述一下cookie,sessionStorage和localStotage的区别
+/*
+	cookie：本身用于客户端与服务端通信，
+			后因自身特点借用于存储
+			使用document.cookie = "……";
+
+*/
