@@ -19,7 +19,15 @@ console.log("2: 基本长都是用“===”");
 		jquery里就是这么写的
 	}
 */
-//3、window.onload 和 document
+//3、window.onload 与 DOMContentLoaded 的区别是什么
+/*
+    windo.addEventListener('load',function(){
+        页面全部加载完才会执行，包括图片，视频等等
+    })
+    document.addEventListener('DOMContentLoaed',function(){
+        dom渲染完即可执行，此时图片视频还可能没有加载完。
+    })
+*/ 
 //4、用js创建10个<a>标签，点击的时候弹出对应的序号
 console.log("4:考察作用域");
 
@@ -246,4 +254,11 @@ xhr.send(null);
 	需要你异步加载js,使用AMD
 	如果使用npm建议使用commonjs
 
+*/
+//37、从输入url到html的详细过程
+/*
+    加载资源的形式
+
+    加载一个资源的过程
+    浏览器渲染页面的过程
 */
