@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>存储cookie</title>
+</head>
+<body>
+	<span>3600</span>
+	<script type="text/javascript" src="js/jquery-3.1.1.min.js"></script>
+	<script type="text/javascript" >
+		var time = 3600;
+		//读取cookie
+		var getNewTime = document.cookie.substring(6);
+		if(getNewTime == null ||getNewTime=="" || getNewTime <=0){
+			time = 3600;
+		}else{
+			time = getNewTime;
+		}
+		//每隔一秒减少时间
+		setInterval(function(){
+			//创建时间
+			var dateV = new Date();
+			var getDate = dateV.getDate();//获取当前日
+			dateV.setDate(getDate+1);//设置失效日期
+        	time-- ;
+        	$("span").text(time);
+        	//存储cookie
+        	document.cookie = "hours="+time+";expires="+dateV;
+		}, 1000);
+		
+	</script>
+
+</body>
+</html>

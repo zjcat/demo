@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="css/reset.css">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>轮播图</title>
+    <link rel="stylesheet" href="">
+    <style type="text/css">
+    .allimgbox {
+        width: 800px;
+        margin: 50px auto;
+        overflow: hidden;
+        position: relative;
+        height: 400px;
+    }
+    
+    .allimgbox >ul {
+        width: 500%;
+        position: absolute;
+        top: 0;
+        left: 0;
+        height: 400px;
+    }
+    
+    .allimgbox >ul >li {
+        width: 20%;
+        height: 100%;
+        float: left;
+    }
+    
+    .allimgbox >ul >li >img {
+        width: 100%;
+        height: 100%;
+    }
+    </style>
+</head>
+
+<body>
+    <div class="allimgbox">
+        <ul>
+            <li><img src="img/lunbo1.jpeg" alt="1"></li>
+            <li><img src="img/lunbo2.jpeg" alt="2"></li>
+            <li><img src="img/lunbo3.jpeg" alt="3"></li>
+            <li><img src="img/lunbo4.jpeg" alt="4"></li>
+        </ul>
+    </div>
+</body>
+<script src="js/jquery-3.1.1.min.js" type="text/javascript" charset="utf-8"></script>
+<script type="text/javascript">
+$(document).ready(function() {
+    var length,
+        currentIndex = 0,
+        interval,
+        hasStarted = false, //是否已经开始轮播 
+        t = 3000; //轮播时间间隔 
+    length = $('.slider-panel').length;
+    //将除了第一张图片隐藏 
+    $('.slider-panel:not(:first)').hide();
+    //将第一个slider-item设为激活状态 
+    $('.slider-item:first').addClass('slider-item-selected');
+    //隐藏向前、向后翻按钮 
+    $('.slider-page').hide();
+    //鼠标上悬时显示向前、向后翻按钮,停止滑动，鼠标离开时隐藏向前、向后翻按钮，开始滑动 
+    $('.slider-panel, .slider-pre, .slider-next').hover(function() {
+        stop();
+        $('.slider-page').show();
+    }, function() {
+        $('.slider-page').hide();
+        start();
+    });
+    $('.slider-item').hover(function(e) {
+        stop();
+        var preIndex = $(".slider-item").filter(".slider-item-selected").index();
+        currentIndex = $(this).index();
+        play(preIndex, currentIndex);
+    }, function() {
+        start();
+    });
+    $('.slider-pre').unbind('click');
+    $('.slider-pre').bind('click', function() {
+        pre();
+    });
+    $('.slider-next').unbind('click');
+    $('.slider-next').bind('click', function() {
+        next();
+    });
+    /** 
+     * 向前翻页 
+     */
+    function pre() {
+        var preIndex = currentIndex;
+        currentIndex = (--currentIndex + length) % length;
+        play(preIndex, currentIndex);
+    }
+    /** 
+     * 向后翻页 
+     */
+    function next() {
+        var preIndex = currentIndex;
+        currentIndex = ++currentIndex % length;
+        play(preIndex, currentIndex);
+    }
+    /** 
+     * 从preIndex页翻到currentIndex页 
+     * preIndex 整数，翻页的起始页 
+     * currentIndex 整数，翻到的那页 
+     */
+    function play(preIndex, currentIndex) {
+        $('.slider-panel').eq(preIndex).fadeOut(500)
+            .parent().children().eq(currentIndex).fadeIn(1000);
+        $('.slider-item').removeClass('slider-item-selected');
+        $('.slider-item').eq(currentIndex).addClass('slider-item-selected');
+    }
+    /** 
+     * 开始轮播 
+     */
+    function start() {
+        if (!hasStarted) {
+            hasStarted = true;
+            interval = setInterval(next, t);
+        }
+    }
+    /** 
+     * 停止轮播 
+     */
+    function stop() {
+        clearInterval(interval);
+        hasStarted = false;
+    }
+    //开始轮播 
+    start();
+});
+</script>
+
+</html>
