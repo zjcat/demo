@@ -1,0 +1,110 @@
+@charset "utf-8";  
+/*  
+  Document   : CSSæ ·å¼åˆå§‹åŒ? 
+  Created on : 2016. 8. 7,09:41:00  
+  Author :  
+  Description:  
+  CSSæ ·å¼è¡¨çš„åˆå§‹åŒ–ï¼Œå…¨å±€æ ·å¼è®¾ç½®ã€‚éƒ¨åˆ†æ ·å¼å±žæ€§è¯·æ ¹æ®å…·ä½“é¡µé¢é‡ç½®å…¶å±žæ€? 
+      å¯¼å…¥æ–¹å¼ï¼?link href="css/common.css" rel="stylesheet" type="text/css" /> */  
+  
+/* reset */  
+body,div,dl,dt,dd,ul,ol,li,h1,h2,h3,h4,h5,h6,pre,code,form,fieldset,legend,textarea,p,blockquote,th,td,input,select,textarea,button {margin:0;padding:0}  /* åˆå§‹åŒ–æ ‡ç­¾åœ¨æ‰€æœ‰æµè§ˆå™¨ä¸­çš„marginã€paddingå€?*/  
+fieldset,img {border:0 none}  /* é‡ç½®fieldsetï¼ˆè¡¨å•åˆ†ç»„ï¼‰ã€å›¾ç‰‡çš„è¾¹æ¡†ä¸?*/  
+dl,ul,ol,menu,li {list-style:none}   /* é‡ç½®ç±»è¡¨å‰å¯¼ç¬¦å·ä¸ºonne,menuåœ¨HTML5ä¸­æœ‰æ•?*/  
+blockquote, q {quotes: none}   /* é‡ç½®åµŒå¥—å¼•ç”¨çš„å¼•å·ç±»åž?*/  
+blockquote:before, blockquote:after,q:before, q:after {content:'';content:none}  /* é‡ç½®åµŒå¥—å¼•ç”¨*/  
+input,select,textarea,button {vertical-align:middle}  /* é‡ç½®è¡¨å•æŽ§ä»¶åž‚ç›´å±…ä¸­*/  
+button {border:0 none;background-color:transparent;cursor:pointer}  /* é‡ç½®è¡¨å•buttonæŒ‰é’®æ•ˆæžœ */  
+body {background:#fff}   /* é‡ç½®body é¡µé¢èƒŒæ™¯ä¸ºç™½è‰?*/  
+body,th,td,input,select,textarea,button {font-size:12px;line-height:1 ;font-family:"å¾®è½¯é›…é»‘", "é»‘ä½“","å®‹ä½“";color:#666} /* é‡ç½®é¡µé¢æ–‡å­—å±žæ€?*/  
+a {color:#333;text-decoration:none}  /* é‡ç½®é“¾æŽ¥aæ ‡ç­¾ */  
+a:focus,a:visited,a:active, a:hover {text-decoration:none}   /* é‡ç½®é“¾æŽ¥aæ ‡ç­¾çš„é¼ æ ‡æ»‘åŠ¨æ•ˆæž?*/  
+address,caption,cite,code,dfn,em,var {font-style:normal;font-weight:normal}  /* é‡ç½®æ ·å¼æ ‡ç­¾çš„æ ·å¼?*/  
+caption {display:none;}    /* é‡ç½®è¡¨æ ¼æ ‡é¢˜ä¸ºéšè—?*/  
+table {width:100%;border-collapse:collapse;border-spacing:0;table-layout:fixed;}    /* é‡ç½®tableå±žæ€?*/  
+img{vertical-align:top}  /* å›¾ç‰‡åœ¨å½“å‰è¡Œå†…çš„åž‚ç›´ä½ç½® */  
+   
+/* é¡µé¢è®¾ç½® */  
+   
+  /* å–æ¶ˆaæ ‡ç­¾ç‚¹å‡»åŽçš„è™šçº¿æ¡?*/  
+a {outline: none;}  
+
+a:active{star:expression(this.onFocus=this.blur());}  
+   
+ /* è®¾ç½®é¡µé¢æ–‡å­—ç­‰åœ¨æ‹–åŠ¨é¼ æ ‡é€‰ä¸­æƒ…å†µä¸‹çš„èƒŒæ™¯è‰²ä¸Žæ–‡å­—é¢œè‰² */  
+/*   
+::selection {color: #fff;background-color: #4C6E78;}      
+::-moz-selection {color: #fff;background-color: #4C6E78;}   
+*/  
+.pos{position: absolute;}
+/* æ¸…é™¤æµ®åŠ¨ */
+.clear:after{content: "";display: block;height: 0;visibility: hidden;clear: both;} 
+.float-left{float: left;}
+.float-right{float: right;}
+/*  
+.clear{clear: both;} 
+.clearfix:before,.clearfix:after{content: '';display: table;}  
+.clearfix:after{clear: both;}   */
+#selectStyle{
+	background: #ccc;
+}
+#selectStyle >button{
+	width: 100%;
+	border-radius: 10px;
+	min-height: 40px;
+	background: #fff;
+	outline: none;
+	margin-bottom: 15px;
+	position: relative;
+}
+#selectStyle >button >span{
+	position: absolute;
+	font-size: 16px;
+	line-height: 40px;
+	bottom: 0;
+	left: 0;
+	right: 0;
+	top: 0;
+	color: #333;
+	padding-left: 120px;
+	text-align: left;
+}
+#selectStyle >.optionList{
+	border-radius: 10px;
+	width: 100%;
+	overflow: hidden;
+	background: #fff;
+	box-shadow:0 0 10px #FCDFDF;
+	display: none;
+}
+#selectStyle >.optionList >ul{
+	width: 100%;
+}
+#selectStyle >.optionList >ul >li{
+	position: relative;
+	width: 100%;
+	height: 40px;
+}
+#selectStyle >.optionList >ul >li >a{
+	position: absolute;
+	top: 0;
+	left: 0;
+	bottom: 0;
+	right: 0;
+	color: #333;
+	font-size: 16px;
+	line-height: 40px;
+	padding-left: 120px;
+}
+#selectStyle >.optionList >ul >li >a:hover{
+	background:#FCE2E2;
+	color: #333;
+}
+#selectStyle >.optionList >ul >li.action >a{
+	background: #F97171;
+	color: #fff;
+}
+#selectStyle >.optionList >ul >li.action >a:hover{
+	background: #F97171;
+	color: #fff;
+}
