@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<title>layoutCSS布局</title>
+	<link rel="stylesheet" href="">
+	<style type="text/css" media="screen">
+		html *{
+			padding: 0;
+			margin: 0;
+		}
+		.layout{
+			margin-bottom: 20px;
+		}
+	</style>
+</head>
+<body>
+	<h1>假设高度已知，请写出三栏布局，其中左栏右栏宽度为300px，中间自适应</h1>
+	<section class="layout layout-1">
+		<style type="text/css" media="screen">
+			.layout-1 .left-right-center{
+				width: 100%;
+				height: 100px;
+			}
+			.layout-1 .left-right-center .left{
+				float: left;
+				width: 300px;
+				height: 100%;
+				background-color: #F37979
+			}
+			.layout-1 .left-right-center .right{
+				float: right;
+				width: 300px;
+				height: 100%;
+				background-color: #F37979;
+			}
+			.layout-1 .left-right-center .center{
+				background-color: #D4F04B;
+				height: 100%;
+			}
+		</style>
+		<article class="left-right-center">
+			<div class="left"></div>
+			<div class="right"></div>
+			<div class="center">
+				<h1>浮动解决方案</h1>
+				1.这是三栏布局中间部分
+				2.这是三栏布局中间部分
+				3.这是三栏布局中间部分
+				4.这是三栏布局中间部分
+			</div>
+		</article>
+	</section>
+	<section class="layout layout-2">
+		<style type="text/css" media="screen">
+			.layout-2 .left-right-center{
+				width: 100%;
+				height: 100px;
+				position: relative;
+			}
+			.layout-2 .left-right-center .left{
+				position: absolute;
+				top: 0;
+				left: 0;
+				width: 300px;
+				height: 100%;
+				background-color: #F37979
+			}
+			.layout-2 .left-right-center .right{
+				position: absolute;
+				top: 0;
+				right: 0;
+				width: 300px;
+				height: 100%;
+				background-color: #F37979;
+			}
+			.layout-2 .left-right-center .center{
+				position: absolute;
+				top: 0;
+				left: 300px;
+				right: 300px;
+				background-color: #D4F04B;
+				height: 100%;
+			}
+		</style>
+		<article class="left-right-center">
+			<div class="left"></div>
+			<div class="right"></div>
+			<div class="center">
+				<h1>绝对定位解决方案</h1>
+				1.这是三栏布局中间部分
+				2.这是三栏布局中间部分
+				3.这是三栏布局中间部分
+				4.这是三栏布局中间部分
+			</div>
+		</article>
+	</section>
+	<section class="layout layout-3">
+		<style type="text/css" media="screen">
+			.layout-3 .left-right-center{
+				display: flex;
+			}
+			.layout-3 .left-right-center .left{
+				width: 300px;
+				background-color: #F24A4A;
+			}
+			.layout-3 .left-right-center .right{
+				width: 300px;
+				background-color: #F24A4A;
+			}
+			.layout-3 .left-right-center .center{
+				flex: 1;
+				background-color: #94C746
+			}
+		</style>
+		<article class="left-right-center">
+			<div class="left"></div>
+			<div class="center">
+				<h1>flexbox解决方案</h1>
+				1.这是三栏布局中间部分
+				2.这是三栏布局中间部分
+				3.这是三栏布局中间部分
+				4.这是三栏布局中间部分
+				4.这是三栏布局中间部分
+				4.这是三栏布局中间部分
+				4.这是三栏布局中间部分
+				4.这是三栏布局中间部分
+				4.这是三栏布局中间部分
+			</div>
+			<div class="right"></div>
+		</article>
+	</section>
+	<section class="layout layout-4">
+		<style type="text/css" media="screen">
+			.layout-4 .left-right-center{
+				display: table;
+				width: 100%;
+				height: 100px;
+			}
+			.layout-4 .left-right-center .left{
+				display: table-cell;
+				width: 300px;
+				background-color: #F24A4A;
+			}
+			.layout-4 .left-right-center .right{
+				display: table-cell;
+				width: 300px;
+				background-color: #F24A4A;
+			}
+			.layout-4 .left-right-center .center{
+				display: table-cell;
+				background-color: #94C746;
+			}
+		</style>
+		<article class="left-right-center">
+			<div class="left"></div>
+			<div class="center">
+				<h1>表格布局解决方案</h1>
+				1.这是三栏布局中间部分
+				2.这是三栏布局中间部分
+				3.这是三栏布局中间部分
+				4.这是三栏布局中间部分
+				4.这是三栏布局中间部分
+				4.这是三栏布局中间部分
+				4.这是三栏布局中间部分
+				4.这是三栏布局中间部分
+				4.这是三栏布局中间部分
+			</div>
+			<div class="right"></div>
+		</article>
+	</section>
+	<section class="layout layout-5">
+		<style type="text/css" media="screen">
+			.layout-5 .left-right-center{
+				display: grid;
+				width: 100%;
+				grid-template-areas: 100px;
+				grid-template-columns: 300px auto 300px;
+			}
+			.layout-5 .left-right-center .left{
+				background-color: #F24A4A;
+			}
+			.layout-5 .left-right-center .right{
+				background-color: #F24A4A;
+			}
+			.layout-5 .left-right-center .center{
+				background-color: #94C746;
+			}
+		</style>
+		<article class="left-right-center">
+			<div class="left"></div>
+			<div class="center">
+				<h1>表格布局解决方案</h1>
+				1.这是三栏布局中间部分
+				2.这是三栏布局中间部分
+				3.这是三栏布局中间部分
+				4.这是三栏布局中间部分
+				5.这是三栏布局中间部分
+				6.这是三栏布局中间部分
+				7.这是三栏布局中间部分
+				8.这是三栏布局中间部分
+				9.这是三栏布局中间部分
+			</div>
+			<div class="right"></div>
+		</article>
+	</section>
+</body>
+</html>

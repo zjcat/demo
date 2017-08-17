@@ -5,9 +5,7 @@ typeof true //boolean
 typeof "zhangsan" //string
 typeof 1 //number
 typeof undefined //undefined
-typeof
-
-function name() {} //function
+typeof function name() {} //function
 typeof null //object
 typeof [0, 1, 2, 3] //object
 typeof { "r": 1, "m", 2 } //object
@@ -267,4 +265,8 @@ xhr.send(null);
     多使用缓存，内存或其他方法
     减少cpu计算，减少网络
 
+*/
+//39、linux基本项目
+/*
+    
 */
