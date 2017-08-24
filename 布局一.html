@@ -1,0 +1,809 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>布局实例及资料(三栏布局)</title>
+    <link rel="stylesheet" href="">
+    <style type="text/css" media="screen">
+    html {
+        background: #F0E9E9;
+    }
+
+    * {
+        margin: 0;
+        padding: 0;
+    }
+
+    .box {
+        margin: auto;
+        padding: 20px;
+        background: #ccc;
+        margin-top: 15px;
+    }
+
+    .layout {
+        width: 100%;
+        margin-bottom: 15px;
+    }
+
+    h1 {
+        font-size: 18px;
+        text-align: center;
+    }
+
+    summary h4 {
+        margin-top: 10px;
+    }
+
+    summary p {
+        padding-left: 10px;
+    }
+    </style>
+</head>
+
+<body>
+    <section class="layout1 box">
+        <h1>1、假设高度为已150像素，请写出三栏布局，其中左栏，右栏宽度各为300px，中间自适应</h1>
+        <section class="layout float">
+            <article>
+                <div class="left">左侧固定宽度</div>
+                <div class="right">右侧固定宽度</div>
+                <div class="center">中间自适应(浮动方法)</div>
+            </article>
+            <style type="text/css" media="screen">
+            .layout1 .layout article {
+                height: 50px;
+            }
+
+            .layout1 .float article>div {
+                height: 100%;
+                text-align: center;
+                font-size: 16px;
+                color: #fff;
+            }
+
+            .layout1 .float .left {
+                float: left;
+                width: 300px;
+                background: #7EF0ED;
+            }
+
+            .layout1 .float .right {
+                float: right;
+                background: #7EF0ED;
+                width: 300px;
+            }
+
+            .layout1 .float .center {
+                background: #F25656;
+            }
+            </style>
+        </section>
+        <section class="layout position">
+            <article>
+                <div class="left">左侧固定宽度</div>
+                <div class="right">右侧固定宽度</div>
+                <div class="center">中间自适应(定位)</div>
+            </article>
+            <style type="text/css" media="screen">
+            .layout1 .layout.position article {
+                height: 50px;
+                position: relative;
+            }
+
+            .layout1 .layout.position article>div {
+                position: absolute;
+                height: 100%;
+                text-align: center;
+                font-size: 16px;
+                color: #fff;
+            }
+
+            .layout1 .position .left {
+                top: 0;
+                left: 0;
+                background: #7EF0ED;
+                width: 300px;
+            }
+
+            .layout1 .position .right {
+                right: 0;
+                top: 0;
+                width: 300px;
+                background: #7EF0ED;
+            }
+
+            .layout1 .position .center {
+                background: #F25656;
+                top: 0;
+                left: 300px;
+                right: 300px;
+            }
+            </style>
+        </section>
+        <section class="layout table">
+            <article>
+                <div class="left">左侧固定宽度</div>
+                <div class="center">中间自适应(表格)</div>
+                <div class="right">右侧固定宽度</div>
+            </article>
+            <style type="text/css" media="screen">
+            .layout1 .layout.table article {
+                width: 100%;
+                display: table;
+                height: 50px;
+            }
+
+            .layout1 .table article>div {
+                display: table-cell;
+                height: 100%;
+                text-align: center;
+                font-size: 16px;
+                color: #fff;
+            }
+
+            .layout1 .table .left {
+                background: #7EF0ED;
+                width: 300px;
+            }
+
+            .layout1 .table .right {
+                background: #7EF0ED;
+                width: 300px;
+            }
+
+            .layout1 .table .center {
+                background: #F25656;
+            }
+            </style>
+        </section>
+        <section class="layout flexbox">
+            <article>
+                <div class="left">左侧固定宽度</div>
+                <div class="center">中间自适应(flexbox)</div>
+                <div class="right">右侧固定宽度</div>
+            </article>
+            <style type="text/css" media="screen">
+            .layout1 .layout.flexbox article {
+                width: 100%;
+                display: flex;
+                height: 50px;
+            }
+
+            .layout1 .flexbox article>div {
+                height: 100%;
+                text-align: center;
+                font-size: 16px;
+                color: #fff;
+            }
+
+            .layout1 .flexbox .left {
+                background: #7EF0ED;
+                width: 300px;
+            }
+
+            .layout1 .flexbox .right {
+                background: #7EF0ED;
+                width: 300px;
+            }
+
+            .layout1 .flexbox .center {
+                background: #F25656;
+                flex: 1;
+            }
+            </style>
+        </section>
+        <section class="layout grid">
+            <article>
+                <div class="left">左侧固定宽度</div>
+                <div class="center">中间自适应(grid)</div>
+                <div class="right">右侧固定宽度</div>
+            </article>
+            <style type="text/css" media="screen">
+            .layout1 .layout.grid article {
+                width: 100%;
+                display: grid;
+                grid-template-areas: 50px;
+                grid-template-columns: 300px auto 300px;
+            }
+
+            .layout1 .grid article>div {
+                text-align: center;
+                font-size: 16px;
+                color: #fff;
+            }
+
+            .layout1 .grid .left {
+                background: #7EF0ED;
+            }
+
+            .layout1 .grid .right {
+                background: #7EF0ED;
+            }
+
+            .layout1 .grid .center {
+                background: #F25656;
+            }
+            </style>
+        </section>
+        <summary>
+            <h2>总结上面五种方法的优缺点。</h2>
+            <section>
+                <h4>浮动：</h4>
+                <p>
+                    优点：兼容性好。
+                </p>
+                <p>
+                    缺点：会脱离文档流，会影响后面代码的布局（这个问题是可以解决的，通过给父元素添加伪类。）
+                </p>
+            </section>
+            <section>
+                <h4>定位</h4>
+                <p>
+                    优点：简易且快速。
+                </p>
+                <p>
+                    缺点：会脱离文档流，会影响后面代码的整体布局，未知结果太多。
+                </p>
+            </section>
+            <section>
+                <h4>表格</h4>
+                <p>
+                    优点：兼容性很好。
+                </p>
+                <p>
+                    缺点：因为自身的诟病，已经在历史舞台上淘汰。
+                </p>
+            </section>
+            <section>
+                <h4>flexbox</h4>
+                <p>
+                    优点：在移动端很适用。
+                </p>
+                <p>
+                    缺点：ie8以下不兼容。
+                </p>
+            </section>
+            <section>
+                <h4>grid</h4>
+                <p>
+                    优点：最新技术，代码量少。
+                </p>
+                <p>
+                    缺点：低版本的浏览器兼容不太友好。
+                </p>
+            </section>
+        </summary>
+    </section>
+    <section class="layout2 box">
+        <h1>2、假设高度未知，请写出三栏布局，其中左栏，右栏宽度各为300px，中间宽度自适应，两边高度自适应</h1>
+        <section class="layout float">
+            <article>
+                <div class="left">左侧固定宽度</div>
+                <div class="right">右侧固定宽度</div>
+                <div class="center">
+                    中间自适应(浮动方法) 中间内容将盒子撑开 中间内容将盒子撑开 中间内容将盒子撑开 中间内容将盒子撑开
+                </div>
+            </article>
+            <style type="text/css" media="screen">
+            .layout2 .float article>div {
+                height: 100%;
+                text-align: center;
+                font-size: 16px;
+                color: #fff;
+            }
+
+            .layout2 .float .left {
+                float: left;
+                width: 300px;
+                background: #7EF0ED;
+            }
+
+            .layout2 .float .right {
+                float: right;
+                background: #7EF0ED;
+                width: 300px;
+            }
+
+            .layout2 .float .center {
+                background: #F25656;
+            }
+            </style>
+        </section>
+        <section class="layout position">
+            <article>
+                <div class="left">左侧固定宽度</div>
+                <div class="right">右侧固定宽度</div>
+                <div class="center">
+                    中间自适应(定位) 中间内容将盒子撑开 中间内容将盒子撑开 中间内容将盒子撑开 中间内容将盒子撑开
+                </div>
+            </article>
+            <style type="text/css" media="screen">
+            .layout2 .layout.position article {
+                position: relative;
+                height: 150px;
+            }
+
+            .layout2 .layout.position article>div {
+                position: absolute;
+                text-align: center;
+                font-size: 16px;
+                color: #fff;
+            }
+
+            .layout2 .position .left {
+                top: 0;
+                left: 0;
+                background: #7EF0ED;
+                width: 300px;
+            }
+
+            .layout2 .position .right {
+                right: 0;
+                top: 0;
+                width: 300px;
+                background: #7EF0ED;
+            }
+
+            .layout2 .position .center {
+                background: #F25656;
+                top: 0;
+                left: 300px;
+                right: 300px;
+            }
+            </style>
+        </section>
+        <section class="layout flexbox">
+            <article>
+                <div class="left">左侧固定宽度</div>
+                <div class="center">中间自适应(flexbox) 中间内容将盒子撑开 中间内容将盒子撑开 中间内容将盒子撑开 中间内容将盒子撑开
+                </div>
+                <div class="right">
+                    右侧固定宽度
+                </div>
+            </article>
+            <style type="text/css" media="screen">
+            .layout2 .layout.flexbox article {
+                width: 100%;
+                display: flex;
+            }
+
+            .layout2 .flexbox article>div {
+                text-align: center;
+                font-size: 16px;
+                color: #fff;
+            }
+
+            .layout2 .flexbox .left {
+                background: #7EF0ED;
+                width: 300px;
+            }
+
+            .layout2 .flexbox .right {
+                background: #7EF0ED;
+                width: 300px;
+            }
+
+            .layout2 .flexbox .center {
+                background: #F25656;
+                flex: 1;
+            }
+            </style>
+        </section>
+        <section class="layout table">
+            <article>
+                <div class="left">左侧固定宽度</div>
+                <div class="center">
+                    中间自适应(表格) 中间内容将盒子撑开 中间内容将盒子撑开 中间内容将盒子撑开 中间内容将盒子撑开
+                </div>
+                <div class="right">右侧固定宽度</div>
+            </article>
+            <style type="text/css" media="screen">
+            .layout2 .layout.table article {
+                width: 100%;
+                display: table;
+            }
+
+            .layout2 .table article>div {
+                display: table-cell;
+                text-align: center;
+                font-size: 16px;
+                color: #fff;
+            }
+
+            .layout2 .table .left {
+                background: #7EF0ED;
+                width: 300px;
+            }
+
+            .layout2 .table .right {
+                background: #7EF0ED;
+                width: 300px;
+            }
+
+            .layout2 .table .center {
+                background: #F25656;
+            }
+            </style>
+        </section>
+        <section class="layout grid">
+            <article>
+                <div class="left">左侧固定宽度</div>
+                <div class="center">中间自适应(grid) 中间内容将盒子撑开 中间内容将盒子撑开 中间内容将盒子撑开 中间内容将盒子撑开 中间内容将盒子撑开 中间内容将盒子撑开 中间内容将盒子撑开 中间内容将盒子撑开
+                    <br> 中间内容将盒子撑开 中间内容将盒子撑开 中间内容将盒子撑开 中间内容将盒子撑开 中间内容将盒子撑开
+                </div>
+                <div class="right">
+                    右侧固定宽度
+                </div>
+            </article>
+            <style type="text/css" media="screen">
+            .layout2 .layout.grid article {
+                width: 100%;
+                display: grid;
+                grid-template-columns: 300px auto 300px;
+            }
+
+            .layout2 .grid article>div {
+                text-align: center;
+                font-size: 16px;
+                color: #fff;
+            }
+
+            .layout2 .grid .left {
+                background: #7EF0ED;
+            }
+
+            .layout2 .grid .right {
+                background: #7EF0ED;
+            }
+
+            .layout2 .grid .center {
+                background: #F25656;
+            }
+            </style>
+        </section>
+        <summary>
+            <h2>总结布局问题</h2>
+            <section>
+                <h4>浮动：</h4>
+                <p>
+                    不能实现。关于浮动详情推荐
+                    <a href="http://luopq.com/2015/11/08/CSS-float/" title="">http://luopq.com/2015/11/08/CSS-float/</a>
+                </p>
+            </section>
+            <section>
+                <h4>定位</h4>
+                <p>
+                    单纯用定位无法实现，而且还影响了下面的布局，我不得已个relative盒子加了高。
+                </p>
+            </section>
+            <section>
+                <h4>表格，flexbox，grid</h4>
+                <p>
+                    自身都可以直接实现这个问题
+                    <br>
+                    <a href="http://blog.qingzhui.net/post/learn-flexbox.html">弹性布局(http://blog.qingzhui.net/post/learn-flexbox.html)</a>
+                    <br>
+                    <a href="http://ghmagical.com/article/page/id/eAhyFiDCFGb6">(grid)http://ghmagical.com/article/page/id/eAhyFiDCFGb6</a>
+                </p>
+            </section>
+        </summary>
+    </section>
+    <section class="layout3 box">
+        <h1>3、假设宽度固定，请写出三栏布局，其中上下高50px,中间高度自适应</h1>
+        <section class="layout position">
+            <article>
+                <div class="top">上方高度固定</div>
+                <div class="center">
+                    中间高度自适应(定位)
+                </div>
+                <div class="bottom">
+                    下方高度固定
+                </div>
+            </article>
+            <style type="text/css" media="screen">
+            .layout3 .layout.position article {
+                position: relative;
+                height: 200px;
+            }
+
+            .layout3 .layout.position article>div {
+
+                text-align: center;
+                font-size: 16px;
+                color: #fff;
+            }
+
+            .layout3 .position .top {
+                background: #7EF0ED;
+                height: 50px;
+            }
+
+            .layout3 .position .bottom {
+                position: absolute;
+                bottom: 0;
+                width: 100%;
+                height: 50px;
+                background: #7EF0ED;
+            }
+
+            .layout3 .position .center {
+                position: absolute;
+                top: 50px;
+                bottom: 50px;
+                width: 100%;
+                background: #F25656;
+            }
+            </style>
+        </section>
+        <section class="layout flexbox">
+            <article>
+                <div class="top">上方高度固定</div>
+                <div class="center">中间高度自适应(flexbox)
+                </div>
+                <div class="bottom">
+                    下方高度固定
+                </div>
+            </article>
+            <style type="text/css" media="screen">
+            .layout3 .layout.flexbox article {
+                width: 100%;
+                display: flex;
+                flex-direction: column;
+                /*让子元素由上到下排列*/
+                height: 200px
+            }
+
+            .layout3 .flexbox article>div {
+                text-align: center;
+                font-size: 16px;
+                color: #fff;
+            }
+
+            .layout3 .flexbox .top {
+                background: #7EF0ED;
+                height: 50px;
+            }
+
+            .layout3 .flexbox .bottom {
+                background: #7EF0ED;
+                height: 50px;
+            }
+
+            .layout3 .flexbox .center {
+                background: #F25656;
+                flex: 1;
+            }
+            </style>
+        </section>
+        <section class="layout table">
+            <article>
+                <div class="top">上方高度固定</div>
+                <div class="center">
+                    中间自适应(表格)
+                </div>
+                <div class="bottom">下方高度固定</div>
+            </article>
+            <style type="text/css" media="screen">
+            .layout3 .layout.table article {
+                width: 100%;
+                display: table;
+                height: 200px;
+            }
+
+            .layout3 .table article>div {
+                display: table-row;
+                text-align: center;
+                font-size: 16px;
+                color: #fff;
+            }
+
+            .layout3 .table .top {
+                background: #7EF0ED;
+                height: 50px;
+            }
+
+            .layout3 .table .bottom {
+                background: #7EF0ED;
+                height: 50px;
+            }
+
+            .layout3 .table .center {
+                background: #F25656;
+            }
+            </style>
+        </section>
+        <section class="layout grid">
+            <article>
+                <div class="top">上方高度固定</div>
+                <div class="center">中间自适应(grid)
+                </div>
+                <div class="bottom">
+                    下方高度固定
+                </div>
+            </article>
+            <style type="text/css" media="screen">
+            .layout3 .layout.grid article {
+                width: 100%;
+                display: grid;
+                height: 200px;
+                grid-template-rows: 50px auto 50px;
+                grid-template-columns: 100%;
+            }
+
+            .layout3 .grid article>div {
+                text-align: center;
+                font-size: 16px;
+                color: #fff;
+            }
+
+            .layout3 .grid .top {
+                background: #7EF0ED;
+            }
+
+            .layout3 .grid .bottom {
+                background: #7EF0ED;
+            }
+
+            .layout3 .grid .center {
+                background: #F25656;
+            }
+            </style>
+        </section>
+        <summary>
+            <h2>总结布局问题</h2>
+            <section>
+                <h4>定位，表格，flexbox，grid</h4>
+                <p>
+                    目前四种可以快速地实现这样的自适应布局
+                </p>
+            </section>
+        </summary>
+    </section>
+    <section class="layout4 box">
+        <h1>4、假设宽度固定，请写出三栏布局，其中上下高也不固定,中间高度自适应</h1>
+        <section class="layout flexbox">
+            <article>
+                <div class="top">
+                    上方高度不固定有内容撑开
+                </div>
+                <div class="center">中间高度自适应(flexbox) 中间内容 中间内容 中间内容
+                </div>
+                <div class="bottom">
+                    下方高度不固定由内容撑开 下方高度不固定由内容撑开
+                    <br>
+                </div>
+            </article>
+            <style type="text/css" media="screen">
+            .layout4 .layout.flexbox article {
+                width: 100%;
+                display: flex;
+                flex-direction: column;
+                /*让子元素由上到下排列*/
+                height: 200px
+            }
+
+            .layout4 .flexbox article>div {
+                text-align: center;
+                font-size: 16px;
+                color: #fff;
+            }
+
+            .layout4 .flexbox .top {
+                background: #7EF0ED;
+            }
+
+            .layout4 .flexbox .bottom {
+                background: #7EF0ED;
+            }
+
+            .layout4 .flexbox .center {
+                background: #F25656;
+                flex: 1;
+            }
+            </style>
+        </section>
+        <section class="layout table">
+            <article>
+                <div class="top">上方高度不固定有内容撑开</div>
+                <div class="center">
+                    中间自适应(表格) 中间自适应(表格)
+                    <br> 中间自适应(表格)
+                    <br> 中间自适应(表格)
+                    <br> 中间自适应(表格)
+                    <br> 中间自适应(表格)
+                </div>
+                <div class="bottom">
+                    下方高度不固定由内容撑开
+                    <br> 下方高度不固定由内容撑开
+                    <br> 下方高度不固定由内容撑开
+                </div>
+            </article>
+            <style type="text/css" media="screen">
+            .layout4 .layout.table article {
+                width: 100%;
+                display: table;
+                height: 200px;
+            }
+
+            .layout4 .table article>div {
+                display: table-row;
+                text-align: center;
+                font-size: 16px;
+                color: #fff;
+            }
+
+            .layout4 .table .top {
+                background: #7EF0ED;
+            }
+
+            .layout4 .table .bottom {
+                background: #7EF0ED;
+            }
+
+            .layout4 .table .center {
+                background: #F25656;
+            }
+            </style>
+        </section>
+        <section class="layout grid">
+            <article>
+                <div class="top">
+                    上方高度不固定有内容撑开
+                    <br> 上方高度不固定有内容撑开
+                    <br> 上方高度不固定有内容撑开
+                </div>
+                <div class="center">中间自适应(grid) 中间自适应(grid) 中间自适应(grid)
+                    <br> 中间自适应(grid)
+                    <br> 中间自适应(grid)
+                    <br> 中间自适应(grid)
+                    <br> 中间自适应(grid) 中间自适应(grid)
+                </div>
+                <div class="bottom">
+                    下方高度不固定由内容撑开
+                </div>
+            </article>
+            <style type="text/css" media="screen">
+            .layout4 .layout.grid article {
+                width: 100%;
+                display: grid;
+                height: 200px;
+                grid-template-rows: auto auto auto;
+                grid-template-columns: 100%;
+            }
+
+            .layout4 .grid article>div {
+                text-align: center;
+                font-size: 16px;
+                color: #fff;
+            }
+
+            .layout4 .grid .top {
+                background: #7EF0ED;
+            }
+
+            .layout4 .grid .bottom {
+                background: #7EF0ED;
+            }
+
+            .layout4 .grid .center {
+                background: #F25656;
+            }
+            </style>
+        </section>
+        <summary>
+            <h2>总结布局问题</h2>
+            <section>
+                <h4>表格，flexbox，grid</h4>
+                <p>
+                    表格和grid在内容所占空间相同时子元素会平分父元素空间,当内容所占空间不相同会自动撑开
+                    <br> flexbox更符合题目。 所以这里具体项目具体选择使用
+                </p>
+            </section>
+        </summary>
+    </section>
+</body>
+
+</html>

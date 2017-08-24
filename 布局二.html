@@ -1,0 +1,676 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>布局实例及资料(两栏布局)</title>
+    <link rel="stylesheet" href="">
+    <style type="text/css" media="screen">
+	    html {
+	        background: #F0E9E9;
+	    }
+
+	    * {
+	        margin: 0;
+	        padding: 0;
+	    }
+
+	    .box {
+	        margin: auto;
+	        padding: 20px;
+	        background: #ccc;
+	        margin-top: 15px;
+	    }
+
+	    .layout {
+	        width: 100%;
+	        margin-bottom: 15px;
+	    }
+
+	    h1 {
+	        font-size: 18px;
+	        text-align: center;
+	    }
+
+	    summary h4 {
+	        margin-top: 10px;
+	    }
+
+	    summary p {
+	        padding-left: 10px;
+	    }
+    </style>
+</head>
+
+<body>
+    <section class="layout1 box">
+        <h1>1、假设左边高度一定，右边自适应</h1>
+        <section class="layout position">
+            <article>
+                <div class="left">左侧固定高度</div>
+                <div class="right">右侧自适应(定位)</div>
+            </article>
+            <style type="text/css" media="screen">
+            .layout1 .layout.position{
+                position: relative;
+            }
+            .layout1 .position article>div {
+                text-align: center;
+                font-size: 16px;
+                color: #fff;
+            }
+
+            .layout1 .position .left {
+                background: #7EF0ED;
+                height: 50px;
+                width: 50%
+            }
+
+            .layout1 .position .right {
+                position: absolute;
+                right: 0;
+                top: 0;
+                background: #FFBCBC;
+                width: 50%;
+                height: 100%
+            }
+            </style>
+        </section>
+        <section class="layout f-p">
+            <article>
+                <div class="left">左侧固定高度</div>
+                <div class="right">右侧自适应(浮动+定位)</div>
+            </article>
+            <style type="text/css" media="screen">
+            .layout1 .layout.f-p{
+                position: relative;
+            }
+            .layout1 .f-p article:after{
+                content: "";
+                display: block;
+                height: 0;
+                visibility: hidden;
+                clear: both;
+            }
+            .layout1 .f-p article>div {
+                text-align: center;
+                font-size: 16px;
+                color: #fff;
+            }
+
+            .layout1 .f-p .left {
+                float: left;
+                background: #7EF0ED;
+                height: 50px;
+                width: 50%
+            }
+
+            .layout1 .f-p .right {
+                position: absolute;
+                right: 0;
+                top: 0;
+                background: #FFBCBC;
+                width: 50%;
+                height: 100%
+            }
+            </style>
+        </section>
+        <section class="layout table">
+            <article>
+                <div class="left">左侧固定高度</div>
+                <div class="right">右侧自适应(表格)</div>
+            </article>
+            <style type="text/css" media="screen">
+            .layout1 .layout.table article {
+                width: 100%;
+                display: table;
+            }
+
+            .layout1 .table article>div {
+                display: table-cell;
+                text-align: center;
+                font-size: 16px;
+                color: #fff;
+                width: 50%;
+            }
+
+            .layout1 .table .left {
+                background: #7EF0ED;
+                height: 50px;
+            }
+
+            .layout1 .table .right {
+                background: #FFBCBC;
+            }
+            </style>
+        </section>
+        <section class="layout flexbox">
+            <article>
+               
+                <div class="left">左侧固定高度</div>
+                <div class="right">右侧自适应(flexbox)</div>
+            </article>
+            <style type="text/css" media="screen">
+            .layout1 .layout.flexbox article {
+                width: 100%;
+                display: flex;
+            }
+
+            .layout1 .flexbox article>div {
+                text-align: center;
+                font-size: 16px;
+                color: #fff;
+                width: 50%;
+            }
+
+            .layout1 .flexbox .left {
+                background: #7EF0ED;
+                height: 50px;
+            }
+
+            .layout1 .flexbox .right {
+                background: #FFBCBC;
+            }
+
+            </style>
+        </section>
+        <section class="layout grid">
+            <article>
+                <div class="left">左侧固定高度</div>
+                <div class="right">右侧自适应(grid)</div>
+            </article>
+            <style type="text/css" media="screen">
+            .layout1 .layout.grid article {
+                width: 100%;
+                display: grid;
+                grid-template-columns:50% 50%;
+            }
+
+            .layout1 .grid article>div {
+                text-align: center;
+                font-size: 16px;
+                color: #fff;
+            }
+
+            .layout1 .grid .left {
+                background: #7EF0ED;
+                height: 50px;
+            }
+
+            .layout1 .grid .right {
+                background: #FDB0B0;
+            }
+            </style>
+        </section>
+        <summary>
+            <h2>总结：</h2>
+            <section>
+                浮动+定位也可以实现这样的两栏布局但要注意清除浮动
+            </section>
+            
+        </summary>
+    </section>
+    <section class="layout2 box">
+        <h1>2、假设左边由内容撑开，右边自适应</h1>
+        <section class="layout position">
+            <article>
+                <div class="left">
+                 左侧固定由内容撑开<br>
+                 左侧固定由内容撑开<br>
+                 左侧固定由内容撑开<br>
+                 左侧固定由内容撑开<br>
+                 左侧固定由内容撑开
+                </div>
+                <div class="right">右侧自适应(定位)</div>
+            </article>
+            <style type="text/css" media="screen">
+            .layout2 .layout.position{
+                position: relative;
+            }
+            .layout2 .position article>div {
+                text-align: center;
+                font-size: 16px;
+                color: #fff;
+            }
+
+            .layout2 .position .left {
+                background: #7EF0ED;
+                width: 50%
+            }
+
+            .layout2 .position .right {
+                position: absolute;
+                right: 0;
+                top: 0;
+                background: #FFBCBC;
+                width: 50%;
+                height: 100%
+            }
+            </style>
+        </section>
+        <section class="layout f-p">
+            <article>
+                <div class="left">
+                 左侧固定由内容撑开<br>
+                 左侧固定由内容撑开<br>
+                 左侧固定由内容撑开<br>
+                 左侧固定由内容撑开<br>
+                 左侧固定由内容撑开
+                </div>
+                <div class="right">右侧自适应(浮动+定位)</div>
+            </article>
+            <style type="text/css" media="screen">
+            .layout2 .layout.f-p{
+                position: relative;
+            }
+            .layout2 .f-p article:after{
+                content: "";
+                display: block;
+                height: 0;
+                visibility: hidden;
+                clear: both;
+            }
+            .layout2 .f-p article>div {
+                text-align: center;
+                font-size: 16px;
+                color: #fff;
+            }
+
+            .layout2 .f-p .left {
+                float: left;
+                background: #7EF0ED;
+                width: 50%
+            }
+
+            .layout2 .f-p .right {
+                position: absolute;
+                right: 0;
+                top: 0;
+                background: #FFBCBC;
+                width: 50%;
+                height: 100%
+            }
+            </style>
+        </section>
+        <section class="layout table">
+            <article>
+                <div class="left">
+                    左侧固定由内容撑开<br>
+                    左侧固定由内容撑开<br>
+                    左侧固定由内容撑开<br>
+                </div>
+                <div class="right">右侧自适应(表格)</div>
+            </article>
+            <style type="text/css" media="screen">
+            .layout2 .layout.table article {
+                width: 100%;
+                display: table;
+            }
+
+            .layout2 .table article>div {
+                display: table-cell;
+                text-align: center;
+                font-size: 16px;
+                color: #fff;
+                width: 50%;
+            }
+
+            .layout2 .table .left {
+                background: #7EF0ED;
+            }
+
+            .layout2 .table .right {
+                background: #FFBCBC;
+            }
+            </style>
+        </section>
+        <section class="layout flexbox">
+            <article>
+               
+                <div class="left">
+                    左侧固定由内容撑开<br>
+                    左侧固定由内容撑开<br>
+                    左侧固定由内容撑开<br>
+                    左侧固定由内容撑开<br>
+                    左侧固定由内容撑开<br>
+                    左侧固定由内容撑开<br>
+                </div>
+                <div class="right">右侧自适应(flexbox)</div>
+            </article>
+            <style type="text/css" media="screen">
+            .layout2 .layout.flexbox article {
+                width: 100%;
+                display: flex;
+            }
+
+            .layout2 .flexbox article>div {
+                text-align: center;
+                font-size: 16px;
+                color: #fff;
+                width: 50%;
+            }
+
+            .layout2 .flexbox .left {
+                background: #7EF0ED;
+            }
+
+            .layout2 .flexbox .right {
+                background: #FFBCBC;
+            }
+
+            </style>
+        </section>
+        <section class="layout grid">
+            <article>
+                <div class="left">
+                    左侧固定由内容撑开<br>
+                    左侧固定由内容撑开<br>
+                    左侧固定由内容撑开<br>
+                    左侧固定由内容撑开<br>
+                </div>
+                <div class="right">右侧自适应(grid)</div>
+            </article>
+            <style type="text/css" media="screen">
+            .layout2 .layout.grid article {
+                width: 100%;
+                display: grid;
+                grid-template-columns:50% 50%;
+            }
+
+            .layout2 .grid article>div {
+                text-align: center;
+                font-size: 16px;
+                color: #fff;
+            }
+
+            .layout2 .grid .left {
+                background: #7EF0ED;
+            }
+
+            .layout2 .grid .right {
+                background: #FDB0B0;
+            }
+            </style>
+        </section>
+        <summary>
+            <h2>总结：</h2>
+            <section>
+                浮动+定位需要给父元素添加伪类，清除浮动。
+            </section>
+            
+        </summary>
+    </section>
+    <section class="layout3 box">
+        <h1>3、假设右边高度一定，左边自适应</h1>
+        <section class="layout f-p">
+            <article>
+                <div class="left">左侧自适应(浮动+定位)</div>
+                <div class="right">右侧固定高度</div>
+            </article>
+            <style type="text/css" media="screen">
+            .layout3 .layout.f-p{
+                position: relative;
+            }
+            .layout3 .f-p article:after{
+                content: "";
+                display: block;
+                height: 0;
+                visibility: hidden;
+                clear: both;
+            }
+            .layout3 .f-p article>div {
+                text-align: center;
+                font-size: 16px;
+                color: #fff;
+                width: 50%
+            }
+
+            .layout3 .f-p .left {
+                position: absolute;
+                left: 0;
+                top: 0;
+                background:#FFBCBC;
+                height: 100%;
+            }
+
+            .layout3 .f-p .right {
+                float: right;
+                background:#7EF0ED ;
+                height: 50px;
+            }
+            </style>
+        </section>
+        <section class="layout table">
+            <article>
+                <div class="left">左侧自适应(table)</div>
+                <div class="right">右侧固定高度</div>
+            </article>
+            <style type="text/css" media="screen">
+            .layout3 .layout.table article {
+                width: 100%;
+                display: table;
+            }
+
+            .layout3 .table article>div {
+                display: table-cell;
+                text-align: center;
+                font-size: 16px;
+                color: #fff;
+                width: 50%;
+            }
+
+            .layout3 .table .left {
+                background:#FFBCBC ;
+            }
+
+            .layout3 .table .right {
+                background:#7EF0ED ;
+                height: 50px;
+            }
+            </style>
+        </section>
+        <section class="layout flexbox">
+            <article>
+                <div class="left">左侧自适应(table)</div>
+                <div class="right">右侧固定高度</div>
+            </article>
+            <style type="text/css" media="screen">
+            .layout3 .layout.flexbox article {
+                width: 100%;
+                display: flex;
+            }
+
+            .layout3 .flexbox article>div {
+                text-align: center;
+                font-size: 16px;
+                color: #fff;
+                width: 50%;
+            }
+
+            .layout3 .flexbox .left {
+                background:#FFBCBC ;
+                
+            }
+
+            .layout3 .flexbox .right {
+                background:#7EF0ED;
+                height: 50px;
+            }
+
+            </style>
+        </section>
+        <section class="layout grid">
+            <article>
+                <div class="left">左侧固定高度</div>
+                <div class="right">右侧自适应(grid)</div>
+            </article>
+            <style type="text/css" media="screen">
+            .layout3 .layout.grid article {
+                width: 100%;
+                display: grid;
+                grid-template-columns:50% 50%;
+            }
+
+            .layout3 .grid article>div {
+                text-align: center;
+                font-size: 16px;
+                color: #fff;
+            }
+
+            .layout3 .grid .left {
+                background: #FDB0B0;
+                
+            }
+
+            .layout3 .grid .right {
+                background: #7EF0ED;
+                height: 50px;
+            }
+            </style>
+        </section>
+        <summary>
+            <h2>总结：</h2>
+            <section>
+            </section>
+            
+        </summary>
+    </section>
+    <section class="layout3 box">
+        <h1>3、假设右边高度一定，左边自适应</h1>
+        <section class="layout f-p">
+            <article>
+                <div class="left">左侧自适应(浮动+定位)</div>
+                <div class="right">右侧固定高度</div>
+            </article>
+            <style type="text/css" media="screen">
+            .layout3 .layout.f-p{
+                position: relative;
+            }
+            .layout3 .f-p article:after{
+                content: "";
+                display: block;
+                height: 0;
+                visibility: hidden;
+                clear: both;
+            }
+            .layout3 .f-p article>div {
+                text-align: center;
+                font-size: 16px;
+                color: #fff;
+                width: 50%
+            }
+
+            .layout3 .f-p .left {
+                position: absolute;
+                left: 0;
+                top: 0;
+                background:#FFBCBC;
+                height: 100%;
+            }
+
+            .layout3 .f-p .right {
+                float: right;
+                background:#7EF0ED ;
+                height: 50px;
+            }
+            </style>
+        </section>
+        <section class="layout table">
+            <article>
+                <div class="left">左侧自适应(table)</div>
+                <div class="right">右侧固定高度</div>
+            </article>
+            <style type="text/css" media="screen">
+            .layout3 .layout.table article {
+                width: 100%;
+                display: table;
+            }
+
+            .layout3 .table article>div {
+                display: table-cell;
+                text-align: center;
+                font-size: 16px;
+                color: #fff;
+                width: 50%;
+            }
+
+            .layout3 .table .left {
+                background:#FFBCBC ;
+            }
+
+            .layout3 .table .right {
+                background:#7EF0ED ;
+                height: 50px;
+            }
+            </style>
+        </section>
+        <section class="layout flexbox">
+            <article>
+                <div class="left">左侧自适应(table)</div>
+                <div class="right">右侧固定高度</div>
+            </article>
+            <style type="text/css" media="screen">
+            .layout3 .layout.flexbox article {
+                width: 100%;
+                display: flex;
+            }
+
+            .layout3 .flexbox article>div {
+                text-align: center;
+                font-size: 16px;
+                color: #fff;
+                width: 50%;
+            }
+
+            .layout3 .flexbox .left {
+                background:#FFBCBC ;
+                
+            }
+
+            .layout3 .flexbox .right {
+                background:#7EF0ED;
+                height: 50px;
+            }
+
+            </style>
+        </section>
+        <section class="layout grid">
+            <article>
+                <div class="left">左侧固定高度</div>
+                <div class="right">右侧自适应(grid)</div>
+            </article>
+            <style type="text/css" media="screen">
+            .layout3 .layout.grid article {
+                width: 100%;
+                display: grid;
+                grid-template-columns:50% 50%;
+            }
+
+            .layout3 .grid article>div {
+                text-align: center;
+                font-size: 16px;
+                color: #fff;
+            }
+
+            .layout3 .grid .left {
+                background: #FDB0B0;
+                
+            }
+
+            .layout3 .grid .right {
+                background: #7EF0ED;
+                height: 50px;
+            }
+            </style>
+        </section>
+        <summary>
+            <h2>总结：</h2>
+            <section>
+            </section>
+            
+        </summary>
+    </section>
+</body>
+
+</html>
