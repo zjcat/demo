@@ -151,94 +151,171 @@
             </div>
         </article>
         <style type="text/css" media="screen">
-        .libox.translate {
-            width: 30%;
-            perspective: 1000px;
-            transform-style: preserve-3d;
-            border-radius: 5px;
-        }
-		.libox.translate:hover .front{
-			transform:rotateY(-180deg); 
-		}
-		.libox.translate:hover .behind{
-			transform:rotateY(0deg); 
-		}
-        .front,
-        .behind {
-            background-size: cover;
-            background-position: center;
-            -webkit-transition: -webkit-transform .7s cubic-bezier(0.4, 0.2, 0.2, 1);
-            transition: -webkit-transform .7s cubic-bezier(0.4, 0.2, 0.2, 1);
-            -o-transition: transform .7s cubic-bezier(0.4, 0.2, 0.2, 1);
-            transition: transform .7s cubic-bezier(0.4, 0.2, 0.2, 1);
-            transition: transform .7s cubic-bezier(0.4, 0.2, 0.2, 1), -webkit-transform .7s cubic-bezier(0.4, 0.2, 0.2, 1);
-            -webkit-backface-visibility: hidden;
-            backface-visibility: hidden;
-            text-align: center;
-            min-height: 280px;
-            height: auto;
-            border-radius: 10px;
-            color: #fff;
-            font-size: 1.5rem;
-        }
-
-        .libox.translate .front {
-            background: url('img/lunbo5.jpg') no-repeat center center;
-            background-size: 100% 100%;
-            transform: rotateY(0deg);
-            transform-style: preserve-3d;
-        }
-
-        .libox.translate .behind {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: #ccc;
-            transform: rotateY(180deg);
-            transform-style: preserve-3d;
-        }
-
-        .libox.translate .behind .inner p {
-            font-size: 18px;
-        }
-
-        .inner {
-            position: absolute;
-            top: 50%;
-            left: 0;
-            width: 100%;
-            padding: 2rem;
-            box-sizing: border-box;
-            perspective: inherit;
-            z-index: 2;
-            transform: translateY(-50%) translateZ(60px) scale(0.94);
-        }
-
-        .inner p {
-            font-size: 2rem;
-            color: #fff;
-            text-align: center;
-        }
-
-        .inner p:after {
-            content: "";
-            display: block;
-            height: 3px;
-            width: 50px;
-            margin: 15px auto;
-            background-color: #fff;
-        }
-
-        .inner span {
-            display: block;
-            text-align: center;
-            font-size: 1.5rem;
-            font-weight: 300;
-            color: rgba(255, 255, 255, 0.7);
-        }
+	        .libox.translate {
+	            width: 30%;
+	            perspective: 1000px;
+	            transform-style: preserve-3d;
+	            border-radius: 5px;
+	        }
+			.libox.translate:hover .front{
+				transform:rotateY(-180deg); 
+			}
+			.libox.translate:hover .behind{
+				transform:rotateY(0deg); 
+			}
+	        .translate .front,
+	        .translate .behind {
+	            background-size: cover;
+	            background-position: center;
+	            -webkit-transition: -webkit-transform .7s cubic-bezier(0.4, 0.2, 0.2, 1);
+	            transition: -webkit-transform .7s cubic-bezier(0.4, 0.2, 0.2, 1);
+	            -o-transition: transform .7s cubic-bezier(0.4, 0.2, 0.2, 1);
+	            transition: transform .7s cubic-bezier(0.4, 0.2, 0.2, 1);
+	            transition: transform .7s cubic-bezier(0.4, 0.2, 0.2, 1), -webkit-transform .7s cubic-bezier(0.4, 0.2, 0.2, 1);
+	            -webkit-backface-visibility: hidden;
+	            backface-visibility: hidden;
+	            text-align: center;
+	            min-height: 280px;
+	            height: auto;
+	            border-radius: 10px;
+	            color: #fff;
+	            font-size: 1.5rem;
+	        }
+	        .libox.translate .front {
+	            background: url('img/lunbo5.jpg') no-repeat center center;
+	            background-size: 100% 100%;
+	            transform: rotateY(0deg);
+	            transform-style: preserve-3d;
+	        }
+	        .libox.translate .behind {
+	            position: absolute;
+	            top: 0;
+	            left: 0;
+	            width: 100%;
+	            height: 100%;
+	            background: #ccc;
+	            transform: rotateY(180deg);
+	            transform-style: preserve-3d;
+	        }
+	        .libox.translate .behind .inner p {
+	            font-size: 18px;
+	        }
+	        .translate .inner {
+	            position: absolute;
+	            top: 50%;
+	            left: 0;
+	            width: 100%;
+	            padding: 2rem;
+	            box-sizing: border-box;
+	            perspective: inherit;
+	            z-index: 2;
+	            transform: translateY(-50%) translateZ(60px) scale(0.94);
+	        }
+	        .translate .inner p {
+	            font-size: 2rem;
+	            color: #fff;
+	            text-align: center;
+	        }
+	        .translate .inner p:after {
+	            content: "";
+	            display: block;
+	            height: 3px;
+	            width: 50px;
+	            margin: 15px auto;
+	            background-color: #fff;
+	        }
+	        .translate .inner span {
+	            display: block;
+	            text-align: center;
+	            font-size: 1.5rem;
+	            font-weight: 300;
+	            color: rgba(255, 255, 255, 0.7);
+	        }
         </style>
+    </section>
+    <section class="demo">
+        <h1>带方向感知的3d立方体动画特效</h1>
+        <article class="box3d">
+            <div class="libox">
+                <a href="" title="" class="front">front</a>
+                <a href="" title="" class="behind">behind</a>
+                <a href="" title="" class="right">right</a>
+                <a href="" title="" class="left">left</a>
+                <a href="" title="" class="top">top</a>
+                <a href="" title="" class="bottom">bottom</a>
+            </div>
+        </article>
+        <style type="text/css" media="screen">
+        	.box3d{
+        		width: 100%;
+        		perspective: 1000px;
+        		transform-style: preserve-3d;
+        		-webkit-perspective-origin: 50% 100px;
+        		perspective-origin: 50% 100px;
+        	}
+        	.box3d .libox{
+				width:300px;
+        		height: 300px;
+        		transform-style: preserve-3d;
+        		animation:cube-spin 5s infinite linear;
+        	}
+        	.box3d .front{
+        		position: absolute;
+        		width: 150px;
+        		height: 150px;
+        		background: rgba(240, 71, 71, 0.4);
+        		transform: translate3d(50%, 50%, 75px);
+        	}
+        	.box3d a{
+        		font-size: 18px;
+        		color: #fff;
+        		text-align: center;
+        	}
+        	.box3d .behind{
+				position: absolute;
+        		width: 150px;
+        		height: 150px;
+        		background: rgba(46, 191, 121, 0.4);
+        		transform: translate3d(50%, 50%, -75px) rotateY(180deg);
+        	}
+        	.box3d .right{
+				position: absolute;
+        		width: 150px;
+        		height: 150px;
+        		background: rgba(59, 236, 71, 0.4);
+        		transform: translate3d(150px, 50%, 0) rotateY(90deg);
+        	}
+        	.box3d .left{
+				position: absolute;
+        		width: 150px;
+        		height: 150px;
+        		background: rgba(239, 271, 69, 0.4);
+        		transform: translate3d(0, 50%, 0) rotateY(-90deg);
+        	}
+        	.box3d .top{
+				position: absolute;
+        		width: 150px;
+        		height: 150px;
+        		background: rgba(61, 234, 134, 0.4);
+        		transform: translate3d(75px, 0, 0) rotateX(90deg);
+        	}
+        	.box3d .bottom{
+				position: absolute;
+        		width: 150px;
+        		height: 150px;
+        		background: rgba(249, 78, 220, 0.4);
+        		transform: translate3d(75px, 100%, 0) rotateX(90deg);
+        	}
+        	@keyframes cube-spin{
+        		0{
+        			transform: rotateY(0);
+        		}
+        		100%{
+        			transform: rotateY(360deg);
+        		}
+        	}
+        </style>
+        
     </section>
 </body>
 
