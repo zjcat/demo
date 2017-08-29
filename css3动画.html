@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<title>纯css3动画demo</title>
+	<link rel="stylesheet" href="">
+	<style type="text/css" media="screen">
+		*{
+			margin: 0;
+			padding: 0;
+		}
+		h1{
+			text-align: center;
+		}
+		.demo{
+			margin-top: 20px;
+		}
+	</style>
+</head>
+<body>
+	<section class="demo ccc">
+		<h1>1、元素在内部，然后散开排列。</h1>
+		<article class="animation-box">
+			<div>
+				<h5>1</h5>
+			</div>
+			<div>
+				<h5>2</h5>
+			</div>
+			<div>
+				<h5>3</h5>
+			</div>
+		</article>
+		<style type="text/css" media="screen">
+		 	.ccc .animation-box{
+		 		width: 500px;
+		 		height: 500px;
+		 		margin: auto;
+		 		position:relative;
+		 		background: #E1D6D6;
+		 	}
+			.ccc .animation-box >div{
+				position:absolute;
+				width: 100px;
+				height: 200px;
+				top: 50%;
+				left: 50%;
+				margin-top:-100px;
+				margin-left:-50px;
+				background: #F87A7A;
+				border: 1px solid #f2f2f2;
+				transition:ease 2s;
+			}
+			.ccc .animation-box:hover >div{
+				margin-top: 0;
+				margin-left: 0;
+				
+			}
+			.ccc .animation-box:hover >div:nth-child(1){
+				top: 0;
+				left: 0;
+			}
+			.ccc .animation-box:hover >div:nth-child(2){
+				top: 0;
+				left: 50%;
+				margin-left: -50px;
+			}
+			.ccc .animation-box:hover >div:nth-child(3){
+				top: 0;
+				left: 100%;
+				margin-left: -100px;
+			}
+		</style>
+	</section>
+	<section class="demo translate">
+		<article>
+			<div class="box">
+				<div class="front">
+					这是前面内容
+				</div>
+				<div class="behind">
+					这是后面内容
+				</div>
+			</div>
+		</article>
+		<style type="text/css" media="screen">
+			.translate article{
+				width: 800px;
+				margin: auto;
+				background: #EFE9E3;
+				height: 500px;
+				overflow: hidden;
+			}
+			.translate article >div.box{
+				position: relative;
+				width: 100px;
+				height: 100px;
+				border-radius: 5px;
+				margin: 20px;
+				overflow: hidden;
+			}
+			.translate article >div.box .front{
+				position: absolute;
+				top: 0;
+				left: 0;
+				width: 100%;
+				height: 100%;
+				background: #E16235;
+				z-index: 2;
+				backface-visibility: hidden;
+				transition: 5s;
+			}
+			.translate article >div.box .behind{
+				position: absolute;
+				top: 0;
+				left: 0;
+				width: 100%;
+				height: 100%;
+				background: #75F632;
+				transform: rotate3d(0, 1, 0, 180deg);
+				z-index: 1;
+				transition: 5s;
+				perspective: 500;
+				-webkit-perspective: 500;
+			}
+			.translate article >div:hover .front{
+				transform: rotate3d(0, 1, 0, 180deg)
+			}
+			.translate article >div:hover .behind{
+				transform: rotate3d(0, 1, 0, 0deg)
+			}
+		</style>
+	</section>	
+</body>
+</html>

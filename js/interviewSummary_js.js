@@ -60,6 +60,15 @@ JSON.stringify() //将json转换成字符串
 JSON.parse() //将字符串转换成json
 //10、如何准确判断一个变量数组类型
 arr instanceof Array
+/*
+    原型链的5个规则
+    1、所有引用类型（数组，对象，函数），都具有对象特性，即可自由扩展属性（null）。
+    2、所有引用类型（数组，对象，函数），都有一个_proto_（隐式原型）属性，属性值是一个普通的对象。
+    3、所有函数都有一个prototype（显示原型）属性，属性值也是一个普通对象。
+    4、所有引用类型（数组，对象，函数），_proto_属性值指向他的构造函数的prototype属性值
+    5、当试图得到一个对象的某个属性值时，如果这个对象本身没有这个属性，
+    那么会去它的_proto_（即它的构造函数去prototype）中寻找
+*/
 //11、写一个原型链继承的例子
 function Getid(id) {
     this.id = document.getElementById(id);

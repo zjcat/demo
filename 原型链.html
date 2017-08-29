@@ -1,0 +1,192 @@
+<!DOCTYh1E html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta htth1-equiv="X-UA-Comh1atible" content="IE=edge">
+    <title>原型链</title>
+    <link rel="stylesheet" href="">
+    <style tyh1e="text/css" media="screen">
+    * {
+        margin: 0;
+        padding: 0;
+        color: #fff;
+    }
+
+    body,
+    html {
+        background: #000;
+        font-family: unset;
+    }
+
+    section {
+        width: 800px;
+        margin: 20px auto;
+        box-shadow: 0 0 5px #fff;
+        border-radius: 5px;
+        padding: 20px;
+        box-sizing: border-box;
+    }
+
+    h6 {
+        font-size: 18px;
+    }
+
+    h1 {
+        color: #F86274;
+        text-shadow: 0 0 5px #fff;
+    }
+
+    code {
+        font-size: 16px;
+        line-height: 32px;
+        display: block;
+        padding: 0 20px;
+        box-shadow: 0 0 5px #cc62f8;
+        margin: 5px 0 20px 0;
+    }
+    canvas{
+    	border-radius: 5px;
+    	width: 450px;
+    }
+    </style>
+</head>
+
+<body>
+    <section>
+        <h1>一、创建对象有几种方法</h1>
+        <div>
+            <h6>1、字面量</h6>
+            <code>
+				var obj1 = {name:"张三"};<br>
+				var obj2 = new Object({name:"李四"})
+			</code>
+        </div>
+        <div>
+            <h6>2、通过构造函数</h6>
+            <code>
+				var M = function(name){
+					this.name = name
+				}<br>
+				var obj3 = new M("王五")
+			</code>
+        </div>
+        <div>
+            <h6>3、Object,create</h6>
+            <code>
+				var P = {name:"刘六"};<br>
+				var obj4 =Object.create(P);
+			</code>
+        </div>
+        <script type="text/javascript">
+        //1、字面量
+        var obj1 = { name: "张三" };
+        var obj2 = new Object({ name: "李四" });
+        //2、通过构造函数
+        var M = function(name) { this.name = name }
+        var obj3 = new M("王五");
+        //3、Object,creat
+        var P = { name: "刘六" };
+        var obj4 = Object.create(P);
+        </script>
+    </section>
+    <section>
+        <h1>二、原型、构造函数、实例、原型链</h1>
+        <canvas id="canvas" >
+        </canvas>
+        <div>
+            <h6>原型链实例</h6><pre><code>var People = function(name) { this.name = name }
+var obj5 = new People("王五");
+People.portotype.say = function(){
+	console.log("say hi")
+}
+var obj6 = new People();</code></pre></div>
+		<h6>3、Object,create</h6>
+        <canvas id="canvas2" >
+        </canvas>
+        <div>
+        	<h6>intanceof原理</h6><!-- 
+        	 --><pre><!-- 
+        		 --><code>var new2 = function(func){
+var o = Object.create(func.prototype);
+	var k = func.call(o);
+	if(typeof k === 'object'){
+		return k
+	}else{
+		return o;
+	}
+}<!-- 
+				 --></code><!-- 
+			 --></pre><!-- 
+		 --></div>
+        
+        <script type="text/javascript">
+	        var People = function(name) { this.name = name }
+	        var obj5 = new People("王五");
+	        People.prototype.say = function(){
+	                console.log("say hi")
+	        }
+	        var obj6 = new People("明明");
+	        //canvas
+	        function draw() {
+	            var ctx = document.getElementById("canvas").getContext('2d');
+	            var ctx2 = document.getElementById("canvas2").getContext('2d');
+	            var img = new Image();
+	            var img2 = new Image();
+	            img.onload = function() {
+	                ctx.drawImage(img, 0, 0, 300, 150);
+	                
+	            }
+	            img2.onload = function(){
+	            	ctx2.drawImage(img2, 0, 0, 300, 150)
+	            };
+	            img.src = "img/prototype.png";
+	            img2.src = "img/instanceof.png";
+	        }
+	        draw();
+	        //new运算符的运行原理
+	        var new2 = function(func){
+			var o = Object.create(func.prototype);
+				var k = func.call(o);
+				if(typeof k === 'object'){
+					return k
+				}else{
+					return o;
+				}
+			}
+        </script>
+    </section>
+    <section>
+        <h1>三、面向对象</h1>
+        <div>
+            <h6>1、类的声明</h6>
+            <pre><code>//ES5.
+function Animal(){
+	this.name = 'name';
+}</code></pre><pre><code>//ES6
+class Animal2 (){
+	this.name = name;
+}</code></pre></div>
+        <div>
+            <h6>2、通过构造函数</h6>
+            <code>
+				var M = function(name){
+					this.name = name
+				}<br>
+				var obj3 = new M("王五")
+			</code>
+        </div>
+        <div>
+            <h6>3、Object,create</h6>
+            <code>
+				var P = {name:"刘六"};<br>
+				var obj4 =Object.create(P);
+			</code>
+        </div>
+        <script type="text/javascript">
+        	
+        </script>
+    </section>
+</body>
+
+</html>
