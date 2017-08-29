@@ -270,3 +270,10 @@ xhr.send(null);
 /*
     
 */
+/*40，event对象的应用*/
+/*
+    1.阻止默认事件：event.preventDefault();
+    2.阻止冒泡：event.stopPropagation();
+    3.绑定多个事件并选择执行：event.stopimmediatePropagation();
+    4.事件绑定中获取当前执行的元素：event.currentTarget/event.target
+*/

@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<title>创建对象</title>
+	<link rel="stylesheet" href="">
+</head>
+<body>
+	<script type="text/javascript">
+		// 创建对象方法
+		// 1、创建字面量
+		var obj1 = {name:"zhangsan"};
+		var obj2 = new Object({name:"李四"});
+		//2、通过构造函数
+		var M = function(name){
+			this.name = name;
+		}
+		var obj3 = new M("wangwu");
+		//3、object.create
+		var P = {name:"liuliu"};
+		var obj4 = Object.create(P)
+	</script>
+</body>
+</html>

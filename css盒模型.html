@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>css盒模型</title>
+    <link rel="stylesheet" href="">
+</head>
+
+<body>
+    <!-- 理论问题 -->
+    <section>
+        <p>
+            基本概念：标准模型和ie模型（content，border，margin，padding）
+        </p>
+        <p>
+            标准模型和ie模型的区别是计算宽度与高度不同（标准模型宽高为content的宽高，而ie模型是从border+padding+content的总和为盒模型的宽高）
+        </p>
+        <p>
+            css如何处理这两种模型：box-sizing:border-box/content-box;
+        </p>
+        <p>
+            js如何获取盒模型对应的宽高：dom.style.width/height(获得内敛元素的宽高) dom.currentSyle.width/height(只有ie支持，得到一个及时运行的结果) window.getComputedStyle(dmo).width/height(兼容性更好一些)。 dom.getBoundingClientRect().width/height(计算元素的绝对位置，他可以拿到top,left,width,height四个之)
+        </p>
+        <p>
+            (边距重叠解决方案)什么是BFC:块级格式化上下文
+        </p>
+        <p>
+            (边距重叠解决方案)BFC原理:就是渲染规则：1，BFC元素的垂直方向会发生重叠；2，BFC的区域不会与 浮动元素的box重叠；3，BFC在页面上是一个独立的容器，外面的元素和里面的元素不会相互影 响；4，计算BFC高度时，浮动元素也会参与计算
+        </p>
+        <p>
+            (边距重叠解决方案)如何创建BFC: 1，float值不为none，只要设置了浮动，就创建了BFC；position值 不为static和relative就创建了BFC；3，display属性inline-block, table-cell, table等等都可以；4， overflow: hidden/auto（不为visible即可
+        </p>
+    </section>
+    <!--实例  -->
+    <section id="sec">
+        <!-- 父子元素重叠 -->
+        <style type="text/css" media="screen">
+        #sec {
+            background-color: #f00;
+        }
+
+        .child {
+            height: 100px;
+            margin-top: 10px;
+            background-color: yellow;
+        }
+        </style>
+        <article class="child">
+        </article>
+    </section>
+    <!--BFC垂直方向边距重叠 -->
+    <section id="margin">
+    	<style type="text/css" media="screen">
+    		#margin{
+    			background: pink;
+    			overflow: hidden;
+    		}
+    		#margin p{
+    			margin: 5px auto 25px;
+    			background:red;
+    		}
+    	</style>
+    	<p>1</p>
+    	<!-- 穿件一个父元素 -->
+    	<div style="overflow: hidden;">
+    		<p>2</p>
+    	</div>
+    	
+    	<p>3</p>
+    </section>
+    <!-- BFC不与float重叠 -->
+    <section id="layout">
+    	<style type="text/css" media="screen">
+    		#layout{
+    			background: red;
+    		}
+    		#layout .left{
+    			float: left;
+    			width: 100px;
+    			height: 100px;
+    			background: pink;
+    		}
+    		#layout .right{
+    			height: 110px;
+    			background: #ccc;
+    		}
+    	</style>
+    	<div class="left">
+    		
+    	</div>
+    	<div class="right">
+    		
+    	</div>
+    </section>
+	<!-- BFC子元素即使是float也会参与高度计算 -->
+    <section id="float">
+    	<style type="text/css" media="screen">
+    		#float{
+    			background: red;
+    			float: left;
+    			/* overflow: auto; */
+    		}
+    		#float .left{
+    			float: left;
+    			font-size: 30px;
+    		}
+    		
+    	</style>
+    	<div class="left">
+    		我是浮动元素
+    	</div>
+    </section>
+</body>
+
+</html>
