@@ -49,6 +49,7 @@
     	border-radius: 5px;
     	width: 450px;
     }
+    
     </style>
 </head>
 
@@ -75,7 +76,7 @@
             <h6>3、Object,create</h6>
             <code>
 				var P = {name:"刘六"};<br>
-				var obj4 =Object.create(P);
+				var obj4 = Object.create(P);
 			</code>
         </div>
         <script type="text/javascript">
@@ -95,17 +96,21 @@
         <canvas id="canvas" >
         </canvas>
         <div>
-            <h6>原型链实例</h6><pre><code>var People = function(name) { this.name = name }
+            <h6>1、原型链实例</h6>
+            <pre><code>var People = function(name) { 
+    this.name = name 
+}
 var obj5 = new People("王五");
 People.portotype.say = function(){
-	console.log("say hi")
+    console.log("say hi")
 }
-var obj6 = new People();</code></pre></div>
-		<h6>3、Object,create</h6>
+var obj6 = new People();</code></pre>
+        </div>
+		<h6>2、intanceof原理</h6>
         <canvas id="canvas2" >
         </canvas>
         <div>
-        	<h6>intanceof原理</h6><!-- 
+        	<h6>new原理</h6><!-- 
         	 --><pre><!-- 
         		 --><code>var new2 = function(func){
 var o = Object.create(func.prototype);
@@ -165,26 +170,133 @@ function Animal(){
 	this.name = 'name';
 }</code></pre><pre><code>//ES6
 class Animal2 (){
-	this.name = name;
+    constructor(){
+        this.name = name;
+    }
 }</code></pre></div>
         <div>
-            <h6>2、通过构造函数</h6>
-            <code>
-				var M = function(name){
-					this.name = name
-				}<br>
-				var obj3 = new M("王五")
-			</code>
+            <h6>2、继承方法</h6>
+            <pre><code>//（1）借助构造函数实现继承
+function Parent1(){
+    this.name = "parent1"
+}
+function Child1(){
+    Parent1.call(this);
+    this.type = "Child1";
+}
+//缺点：parent1原型链上的内容并没有被Child1继承</code></pre>
         </div>
-        <div>
-            <h6>3、Object,create</h6>
-            <code>
-				var P = {name:"刘六"};<br>
-				var obj4 =Object.create(P);
-			</code>
-        </div>
+        <pre><code>//(2)借助原型链实现继承
+function Parent2(){
+    this.name = "parent2"
+    this.arr = [1,2,3];
+}
+function Child2(){
+    this.type = "Child2";
+}
+Parent2.prototype.say = function(){
+    console.log('say hi')
+}
+Child2.prototype = new Parent2();
+//缺点：当一个新对象操作父类对象时，会影响其他新对象的值。
+//例：
+var s1 = new Child2();
+var s2 = new Child2();
+s1.arr.push(4);
+</code></pre>
+<pre><code>//(2)组合方式
+function Parent3(){
+    this.name = "parent3"
+    this.arr = [1,2,3];
+}
+function Child3(){
+    Parent3.call(this);
+    this.type = "Child3";
+}
+Parent3.prototype.say = function(){
+    console.log('say hi')
+}
+Child3.prototype = new Parent3();
+//缺点：多次使用父类。
+</code></pre>
+        
         <script type="text/javascript">
-        	
+            // es5
+        	function Animal(){
+                this.name = 'name';
+            }
+            // es6
+            class Animal2{
+                constructor(){
+                    this.name = name;
+                }
+            }
+            // 实例化
+            console.log(new Animal(),new Animal2());
+            // 继承方法
+            //1、通过构造函数实现继承(只实现部分继承)
+            function Parent1(){
+                this.name = "parent1"
+            }
+            function Child1(){
+                Parent1.call(this);//原理所在
+                this.type = "Child1";
+            }
+            Parent1.prototype.say = function(){
+                console.log('say hi')
+            }
+            //2、借助原型链实现继承
+            function Parent2(){
+                this.name = "parent2"
+                this.arr = [1,2,3];
+            }
+            function Child2(){
+                this.type = "Child2";
+            }
+            Parent2.prototype.say = function(){
+                console.log('say hi')
+            }
+            Child2.prototype = new Parent2();
+            //缺点：当一个新对象操作父类对象时，会影响其他新对象的值。
+            //例：
+            var s1 = new Child2();
+            var s2 = new Child2();
+            s1.arr.push(4);
+            console.log(s1.arr,s2.arr);
+            // 组合方式
+            function Parent3(){
+                this.name = "parent3"
+                this.arr = [1,2,3];
+            }
+            function Child3(){
+                Parent3.call(this);
+                this.type = "Child3";
+            }
+            Parent3.prototype.say = function(){
+                console.log('say hi')
+            }
+            Child3.prototype = new Parent3();
+            //缺点：多次使用父类
+            //例：
+            var s3 = new Child3();
+            var s4 = new Child3();
+            s3.arr.push(4);
+            console.log(s3.arr,s4.arr);
+            //组合继承的优化
+            function Parent4(){
+                this.name = "parent4"
+                this.arr = [1,2,3];
+            }
+            function Child4(){
+                Parent4.call(this);
+                this.type = "Child4";
+            }
+            Parent4.prototype.say = function(){
+                console.log('say hi')
+            }
+            Child4.prototype = Parent4.prototype;
+            var s5 = new Child4();
+            console.log(s5.constructor)
         </script>
     </section>
 </body>
