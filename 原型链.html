@@ -204,7 +204,7 @@ var s1 = new Child2();
 var s2 = new Child2();
 s1.arr.push(4);
 </code></pre>
-<pre><code>//(2)组合方式
+<pre><code>//(3)组合方式
 function Parent3(){
     this.name = "parent3"
     this.arr = [1,2,3];
@@ -219,7 +219,42 @@ Parent3.prototype.say = function(){
 Child3.prototype = new Parent3();
 //缺点：多次使用父类。
 </code></pre>
-        
+<pre><code>//(4)组合继承优化
+function Parent4(){
+    this.name = "parent4"
+    this.arr = [1,2,3];
+}
+function Child4(){
+    Parent4.call(this);
+    this.type = "Child4";
+}
+Parent4.prototype.say = function(){
+    console.log('say hi')
+}
+Child4.prototype = Parent4.prototype;
+var s5 = new Child4();
+console.log(s5.constructor)
+//缺点：无法正确找寻到实例的构造函数
+</code></pre>
+<pre>
+<code>//组合继承的优化
+function Parent5(){
+    this.name = "parent5"
+    this.arr = [1,2,3];
+}
+function Child5(){
+    Parent5.call(this);
+    this.type = "Child5";
+}
+Parent5.prototype.say = function(){
+    console.log('say hi')
+}
+Child5.prototype = Object.create(Parent5.prototype);
+Child5.prototype.constructor = Child5;
+var s6 = new Child5();
+console.log(s6.constructor) 
+</code>            
+</pre>        
         <script type="text/javascript">
             // es5
         	function Animal(){
@@ -297,6 +332,23 @@ Child3.prototype = new Parent3();
             Child4.prototype = Parent4.prototype;
             var s5 = new Child4();
             console.log(s5.constructor)
+            //组合优化2
+            //组合继承的优化
+            function Parent5(){
+                this.name = "parent5"
+                this.arr = [1,2,3];
+            }
+            function Child5(){
+                Parent5.call(this);
+                this.type = "Child5";
+            }
+            Parent5.prototype.say = function(){
+                console.log('say hi')
+            }
+            Child5.prototype = Object.create(Parent5.prototype);
+            Child5.prototype.constructor = Child5;
+            var s6 = new Child5();
+            console.log(s6.constructor)
         </script>
     </section>
 </body>
