@@ -1,0 +1,98 @@
+<!DOCTYh1E html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta htth1-equiv="X-UA-Comh1atible" content="IE=edge">
+    <title>渲染机制</title>
+    <link rel="stylesheet" href="">
+    <style tyh1e="text/css" media="screen">
+    * {
+        margin: 0;
+        padding: 0;
+        color: #fff;
+    }
+
+    body,
+    html {
+        background: #000;
+        font-family: unset;
+    }
+
+    section {
+        width: 800px;
+        margin: 20px auto;
+        box-shadow: 0 0 5px #fff;
+        border-radius: 5px;
+        padding: 20px;
+        box-sizing: border-box;
+    }
+
+    h6 {
+        font-size: 18px;
+    }
+
+    h1 {
+        color: #F86274;
+        text-shadow: 0 0 5px #fff;
+    }
+
+    code {
+        font-size: 16px;
+        line-height: 32px;
+        display: block;
+        padding: 0 20px;
+        box-shadow: 0 0 5px #cc62f8;
+        margin: 5px 0 20px 0;
+    }
+    canvas{
+    	border-radius: 5px;
+    	width: 450px;
+    }
+    </style>
+</head>
+
+<body>
+    <section>
+        <h1>一、什么是DOCTYPE及作用</h1>
+        <div>
+            <h6></h6>
+            <code>
+				DTD(documnet type definition,文档类型定义) 是一系列的语法规则，用来定义XML或（X）HTML的文档类型。浏览器会使用它来判断文档类型，决定使用何种协议解析以及切换浏览器模式。
+			</code>
+			<code>
+				DOCTYPE是用来声明文档类型和DTD规范的，一个主要的用途便是文件的合法性验证，如果文件代码不合法，那么浏览器解析时便会出一些差错。
+			</code>
+        </div>
+        <div>
+            <h6>2、通过构造函数</h6>
+            <code>
+				var M = function(name){
+					this.name = name
+				}<br>
+				var obj3 = new M("王五")
+			</code>
+        </div>
+        <div>
+            <h6>3、Object,create</h6>
+            <code>
+				var P = {name:"刘六"};<br>
+				var obj4 =Object.create(P);
+			</code>
+        </div>
+        <script type="text/javascript">
+        //1、字面量
+        var obj1 = { name: "张三" };
+        var obj2 = new Object({ name: "李四" });
+        //2、通过构造函数
+        var M = function(name) { this.name = name }
+        var obj3 = new M("王五");
+        //3、Object,creat
+        var P = { name: "刘六" };
+        var obj4 = Object.create(P);
+        </script>
+    </section>
+
+</body>
+
+</html>
