@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8"/>
+    <title>Title</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        #Toggle {
+            width: 100px;
+            height: 25px;
+            background-color: #dcdcdc;
+            position: absolute;
+            right: 80px;
+            top: 120px;
+            overflow: hidden;
+        }
+
+        #btn {
+            width: 30px;
+            height: 25px;
+            background-color: #1e97ea;
+            position: absolute;
+            left: 0px;
+            top: 0px;
+            cursor: pointer;
+            z-index: 100;
+        }
+    </style>
+</head>
+<body>
+<div id="Toggle">
+    <div id="btn"></div>
+</div>
+<script type="text/javascript">
+    function Toggle(toggle, l, r) {
+        var $ = this;
+        $.wrap = toggle;//获得开关对象
+        $.wrapOL = $.wrap.offsetLeft;//获得左偏移量
+        $.wrapOT = $.wrap.offsetTop;//获得上偏移量
+        $.btn = $.wrap.firstElementChild;//获得按钮
+        $.btn.addEventListener("mousedown", handler);
+        document.addEventListener("mouseup", handler);//任何位置抬起鼠标
+        $.X = null;//鼠标位置快照
+        function handler(e) {
+            switch (e.type) {
+                case "mousedown":
+                    $.X = e.offsetX;//当前点击对象位置快照
+                    $.wrap.addEventListener("mousemove", handler);
+                    break;
+                case "mouseup":
+                    $.wrap.removeEventListener("mousemove", handler);
+                    $.btn.style.left = $.btn.offsetLeft > 35 ? 70 + "px" : 0 + "px";
+                    $.X = null;
+                    $.btn.offsetLeft < 35 ? l : r;//判断开关状态
+                    break;
+                default:
+                    $.btn.style.left = e.x - $.wrapOL - $.X + "px";
+                    $.btn.offsetLeft < 0 ? $.btn.style.left = 0 : false;
+                    $.btn.offsetLeft > 70 ? $.btn.style.left = 70 + "px" : false;
+                    break;
+            }
+        }
+    }
+    var toggle = document.querySelector("#Toggle");
+    //获得开关对象
+    var mytoggle = new Toggle(toggle);
+    //实例化开关
+    Toggle=null;
+</script>
+</body>
+</html>
