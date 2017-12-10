@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<title>滑块组件</title>
+	<link rel="stylesheet" href="">
+	<style type="text/css" media="screen">
+		*{
+			margin: 0;
+			padding: 0;
+		}
+		table{
+			border-collapse: collapse;
+		    text-align: center;
+		    position: relative;
+		    background-color: #fff;
+		    border-radius: 1px;
+		    width: 250px;
+		    margin: 50px auto;
+		}
+		table tr td {
+		    height: 45px;
+		    position: relative;
+		    top: 0px;
+		    left: 0px;
+		    box-sizing: border-box;
+		    border: 1px solid #ccc;
+		    position: relative;
+		}
+		table tr td p {
+		    display: block;
+		    height: 100%;
+		    width: 100%;
+		    line-height: 45px;
+		    position: absolute;
+		    top: 0px;
+		    left: 0px;
+		}
+		table tr td p.slide{
+			background: #23F993;
+		    cursor: pointer;
+		}
+		table tr td p.disable{
+			background: #EFEDED;
+			cursor: auto;
+		}
+		table tr td p.notText.hastext{
+			background: #F0E148;
+		}
+	</style>
+</head>
+<body>
+	<table class="develop">
+		<tr>
+			<td><p class="slide" data-id="0">张三</p></td>
+			<td><p class="slide" data-id="1">李四</p></td>
+			<td><p class="slide" data-id="2">王五</p></td>
+			<td><p class="slide" data-id="3">裂了</p></td>
+		</tr>
+		<tr>
+			<td><p class="slide" data-id="4">得到</p></td>
+			<td><p class="slide" data-id="5">公认</p></td>
+			<td><p class="slide" data-id="6">并不</p></td>
+			<td><p class="slide" data-id="7">懂得</p></td>
+		</tr>
+	</table>
+	<table class="model">
+		<tr>
+			<td><p class="notText"></p></td>
+			<td><p class="notText"></p></td>
+			<td><p class="notText"></p></td>
+			<td><p class="notText"></p></td>
+		</tr>
+	</table>
+	<script src="index.js"></script>
+	<script type="text/javaScript">
+		var slide = new Slide("slide");
+		slide.moveon("notText");
+	</script>
+	
+</body>
+</html>
