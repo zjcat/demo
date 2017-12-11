@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<title>拖拽滑块</title>
+	<link rel="stylesheet" href="">
+	<style type="text/css" media="screen">
+	*{
+		margin: 0;
+		padding: 0;
+	}
+	#box{
+		width: 100px;
+		height: 30px;
+		position: relative;
+		box-shadow: 0 0 10px #000;
+		margin: 50px auto;
+	}
+	#box #block{
+		position:absolute;
+		top: 0;
+		left: 0;
+		width: 30px;
+		height: 30px;
+		background: #F90B0B;
+		cursor: pointer;
+	}
+	</style>
+</head>
+<body>
+	<div>
+		asdfasdf
+	<span>啊圣诞快乐房价啊是浪费</span>
+	<div id="box">
+		<span id="block"></span>
+	</div>
+	asdfasdf
+	<span>啊圣诞快乐房价啊是浪费</span>
+	</div>
+	
+	<script type="text/javascript">
+		var d = document,
+			b = d.getElementById("block"),
+			bb = d.getElementById("box")
+			b.onmousedown = function(e){
+				var e = e || event,
+				    mL = e.clientX,
+				    eL = b.offsetLeft,
+				    bbL = bb.offsetLeft,
+				    x = mL - (eL + bbL);
+				//     this.style.left = bL + 'px';
+				// console.log(bbL)
+				d.onmousemove = function(e){
+					mL = e.clientX,
+					//eL = this.offsetLeft,
+					bL = mL - (x + bbL);
+					if(bL<= 35){
+						b.style.left = 0 + 'px';
+						return
+					}else if (bL >=45) {
+						b.style.left = 70 + 'px';
+						return 
+					}
+					b.style.left = bL + 'px';
+				}
+				d.onmouseup = function(){
+					d.onmousemove = null;
+					return false;
+				}
+			}
+
+	</script>				
+</body>
+</html>

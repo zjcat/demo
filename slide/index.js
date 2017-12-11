@@ -1,13 +1,12 @@
 /*
  * @Author: zjcat
  * @Date:   2017-12-09 21:43:59
- * @Last Modified by:   zjcat
- * @Last Modified time: 2017-12-10 01:04:06
+ * @Last Modified by:   18599
+ * @Last Modified time: 2017-12-10 17:06:05
  */
 function Slide(ele) {
     this.ele = document.getElementsByClassName(ele);
     this.doc = document;
-    
 }
 
 Slide.prototype.moveon = function(arg) {
@@ -35,7 +34,7 @@ Slide.prototype.moveon = function(arg) {
              }
     //鼠标移动
     for (var i = 0; i < ele.length; i++) {
-        ele[i].onmousedown = function(e) {
+        ele[i].addEventListener('mousedown', function(e) {
             var _this = this;
             	textV = _this.innerHTML;
             	idV = _this.getAttribute("data-id");
@@ -85,7 +84,12 @@ Slide.prototype.moveon = function(arg) {
                 }
                 
                 doc.onmousemove = null;
+                doc.onmouseup = null;
             }
-        }
+        })
     }
 };
+// Slide.prototype.on = function(type,ele){
+//     var id = this.id;
+//     id.addEventListener(type, fn);
+// }
