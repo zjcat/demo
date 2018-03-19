@@ -3,8 +3,8 @@ window.onload=function(){
 }
 function waterFull(elem,tagname){
 	var elemName = document.getElementById(elem);
-	var getliAll = getTagname(elemName,tagname);
-	var getLiWidth = getliAll[0].offsetWidth;
+	var getliAll = getTagname(elemName,tagname);//接收所有LI
+	var getLiWidth = getliAll[0].offsetWidth;//获取li的宽度
 	//获取页面宽度
 	var getLi = changeWindow(getLiWidth,elemName)
 	getHeight(getliAll,getLi,getLiWidth)
@@ -57,6 +57,7 @@ function changeWindow(getLiWidth,elemName){
 	elemName.style.width = getLiNum*getLiWidth+"px";
 	return getLiNum;
 }
+
 function getHeight(getliAll,getLi,getLiWidth){
 	var lineHeight = [];
 	for (var i = 0; i < getliAll.length; i++) {

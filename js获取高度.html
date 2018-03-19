@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<title>js获取高度方法的区别</title>
+	<link rel="stylesheet" href="">
+	<script src="js/jquery-3.1.1.min.js"></script>
+</head>
+<body>
+	<section>
+		<div class="divelement" id="div1">
+			<div class="divelement" id="div1_1"></div>
+		</div>
+		<style>
+			#div1{
+				width: 500px;
+				height: 600px;
+				border:4px solid #9732DE;
+				background: #EA4040 url('img/lunbo1.jpeg');
+				margin: auto;
+				padding: 50px;
+				background-clip:content-box;
+				overflow: auto;
+			}
+			#div1_1{
+				height: 800px;
+				width: 300px;
+				margin:50px auto;
+				background:#4BF320;
+			}
+		</style>
+		<script type="text/javascript">
+			let divEle = document.getElementById("div1");
+			let divEle1_1 = document.getElementById("div1_1");
+
+			let divHeight = $(divEle).height();
+			console.log("获取元素高度，不含padding,border："+divHeight);
+
+			let divOffsetHeight = divEle.offsetHeight;
+			console.log("获取元素和实际高度,包含padding，border："+divOffsetHeight);
+
+			let divClientHeight = divEle.clientHeight;
+			console.log("返回内容的可视高度（不包括边框，滚动条与边距，包含padding）:"+divClientHeight);
+
+			let divScrollHeight = divEle.scrollHeight;
+			console.log("返回整个元素的高度（包括滚动条，padding,不含border）："+divScrollHeight)
+
+			let divInnerHeight = divEle.innerHeight;
+			console.log("返回元素的内部高度，包含padding，不含border（极少用）："+divInnerHeight);
+
+			let divOutHeight = divEle.outHeight;
+			console.log("返回元素外部高度，可能包含margin（极少用）："+divOutHeight)
+		</script>
+	</section>
+</body>
+</html>
